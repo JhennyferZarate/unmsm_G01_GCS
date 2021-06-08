@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 Lucero
+=======
+ROlando
+>>>>>>> b8c69a4dfdbbb33924c669a6d30e88a9616bd96f
+
+lucero
+
