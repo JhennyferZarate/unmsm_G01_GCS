@@ -1,2 +1,12 @@
+<<<<<<< HEAD
+Lucero
+=======
 ROlando
+<<<<<<< HEAD
 Claudita
+=======
+>>>>>>> b8c69a4dfdbbb33924c669a6d30e88a9616bd96f
+
+lucero
+
+>>>>>>> 12cd710faea835846771a24b0003a52b7bdcc195
