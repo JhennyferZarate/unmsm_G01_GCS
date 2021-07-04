@@ -1,0 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-title {
+  font-family: "Poppins";
+  font-size: 28px;
+}

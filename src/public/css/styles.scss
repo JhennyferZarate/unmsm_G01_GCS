@@ -1,0 +1,13 @@
+$font-principal: 'Poppins';
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.navbar{
+    &-title{
+        font-family: $font-principal;
+        font-size: 28px;
+    }
+}
