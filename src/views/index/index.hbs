@@ -1,0 +1,56 @@
+<section class="container-fluid p-0 front-page">
+    <img src="" alt="">
+    <p>soy la portada AAAAA</p>
+</section>
+
+<section class="container-fluid p-0">
+    <div class="container">
+        <div class="carousel-1">
+            <img src="images/carousel-1/Polos.png" alt="Polos">
+            <img src="images/carousel-1/Faldas.png" alt="Faldas">
+            <img src="images/carousel-1/Jeans.png" alt="Jeans">
+            <img src="images/carousel-1/Chompas.png" alt="Chompas">
+            <img src="images/carousel-1/Chompas.png" alt="Chompas">
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function(){
+        $('.carousel-1').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });         
+    });
+</script>
