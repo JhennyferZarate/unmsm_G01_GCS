@@ -1,12 +1,15 @@
 $font-principal: 'Poppins';
+$background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
 
 *{
     padding: 0;
     margin: 0;
 }
 
+
 .btn-principal{
-    background: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);;
+    background: $background-principal;
+    color:white;
     border-radius: 30px;
     &:hover{
         filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
@@ -23,6 +26,34 @@ $font-principal: 'Poppins';
     }
 }
 
+.login{
+    background: $background-principal;
+    .row{
+        min-height: 100vh;
+    }
+}
+
 .front-page{
-    min-height: 100vh;
+    img{
+        min-height: 100vh;
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
+.carousel-1{
+    button{
+        display: none;
+    }
+}
+
+.card{
+    &-login{
+        background-color: #FAFAFA;
+        border-radius: 30px;
+        width: 100%;
+        .btn{
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+        }
+    }
 }
