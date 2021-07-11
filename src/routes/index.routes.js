@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
-const Index = require('../controllers/index.controller')
+const Index = require('../controllers/index.controller');
 
 router.get('/', Index.index);
 
