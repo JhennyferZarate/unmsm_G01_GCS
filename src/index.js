@@ -13,8 +13,8 @@ const RutaIndex = require('./routes/index.routes');
 const RutaAuth = require('./routes/autenticacion.routes');
 const RutaUsuario = require('./routes/usuario.routes');
 const RutaPrenda = require('./routes/prendas.routes');
-const RutaFormulario = require('./routes/formulario.routes')
-    //Inicializations
+const RutaFormulario = require('./routes/formulario.routes');
+//Inicializations
 const app = express();
 require('./lib/passport');
 

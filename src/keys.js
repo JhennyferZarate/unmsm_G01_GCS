@@ -5,6 +5,6 @@ module.exports = {
         host: 'localhost',
         user: 'root',
         password: 'Patatas123',
-        database: 'MMP'
+        database: 'mmp'
     }
 };
