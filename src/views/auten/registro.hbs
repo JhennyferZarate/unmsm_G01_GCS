@@ -1,55 +1,59 @@
-<div class="container-fluid login">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-lg-6 d-lg-flex d-none">
-                <img src="images/login/login_image_1.png" alt="">
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="card card-login mx-auto px-lg-4">
-                    <div class="card-body text-center">
-                        <h2>Regístrate</h2>
-                        <h3>¡Bienvenido!</h3>
-                        <form action="/ingreso" method="POST">
-                            <div class="form-row align-items-center">
-                                <div class="col-12">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <img src="images/login/user.png" alt="Usuario" height="32px" width="32px">
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control py-2" id="inlineFormInput" placeholder="USUARIO">
-                                    </div>
-                                </div>
+<div class="container-fluid register">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-5">
+                <h3 class="text-center">regístrate</h3>
+                <form class="my-1" action="/registro" method="POST">
+                    <div class="form-row align-items-center justify-content-around">
+                        <div class="col-10 col-md-4 form-group mb-4">
+                            <label for="name">Nombre:</label>
+                            <input type="text" class="form-control py-2" id="name" placeholder="INGRESE SU NOMBRE">
+                        </div>
 
-                                <div class="col-12">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <img src="images/login/lock.png" alt="Contraseña" height="32px" width="32px">
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control py-2" id="inlineFormInputGroup" placeholder="CONTRASEÑA">
-                                    </div>
-                                </div>
+                        <div class="offset-md-1 col-10 col-md-4 form-group mb-4">
+                            <label for="last_one_name">Apellido Paterno:</label>
+                            <input type="text" class="form-control py-2" id="last_one_name" placeholder="INGRESE SU APELLIDO PATERNO">
+                        </div>
 
-                                <div class="col-12">
-                                    <div class="form-check mb-2 text-left">
-                                        <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                                        <label class="form-check-label" for="autoSizingCheck">
-                                        Recordar
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-principal mb-2 col-12">INGRESAR</button>
-                                </div>
+                        <div class="col-10 col-md-4 form-group mb-4">
+                            <label for="last_two_name">Apellido Materno:</label>
+                            <input type="text" class="form-control py-2" id="last_two_name" placeholder="INGRESE SU APELLIDO MATERNO">
+                        </div>
+
+                        <div class="offset-md-1 col-10 col-md-4 form-group mb-4">
+                            <label for="dni">DNI:</label>
+                            <input type="number" class="form-control py-2" id="dni" placeholder="INGRESE SU DNI">
+                        </div>
+
+                        <div class="col-10 col-md-4 form-group mb-4">
+                            <label for="phone">Celular:</label>
+                            <input type="number" class="form-control py-2" id="phone" placeholder="INGRESE SU CELULAR">
+                        </div>
+
+                        <div class="offset-md-1 col-10 col-md-4 form-group mb-4">
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" class="form-control py-2" id="email" placeholder="INGRESE SU CORREO ELECTRÓNICO">
+                        </div>
+
+                        <div class="col-10 col-md-4 form-group mb-4">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" class="form-control py-2" id="password" placeholder="INGRESE SU CONTRASEÑA">
+                        </div>
+
+                        <div class="offset-md-1 col-10 col-md-4 form-group mb-4">
+                            <label for="confirm_password">Confirmar Contraseña:</label>
+                            <input type="confirm_password" class="form-control py-2" id="confirm_password" placeholder="CONFIRMAR LA CONTRASEÑA">
+                        </div>
+
+
+                        <div class="col-12 text-center mt-1">
+                            <button type="submit" class="btn btn-principal mb-1 col-md-5 col-7 py-2">INGRESAR</button>
+                            <div class="text-center mb-1">
+                                <p>¿Ya Tienes Una Cuenta? <a href="/ingreso">Iniciar Sesión</a></p>
                             </div>
-                        </form>
-                        <p class="d-inline-block mb-0">¿Ya Tienes Una Cuenta?</p>
-                        <a class="d-inline-block" href="/ingreso">Inicia Sesión</a>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
