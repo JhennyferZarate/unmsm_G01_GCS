@@ -8,7 +8,7 @@
     },
     "scripts": {
         "dev": "nodemon src/",
-        "star": "index src/index.js"
+        "start": "index src/index.js"
     },
     "repository": {
         "type": "git",
