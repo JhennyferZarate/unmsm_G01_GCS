@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.carousel-1').slick({
+    $('.carousel-principal').slick({
         arrows: false,
         infinite: true,
         speed: 300,

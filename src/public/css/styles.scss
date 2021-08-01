@@ -123,16 +123,40 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     }
 }
 
-.carousel-1{
-    button{
-        display: none;
+.info{
+    &-background{
+        position: relative;
+    }
+    &-text{
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+    &-ofert{
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        font-size: 24px;
+        font-weight: bold;
     }
 }
 
-
 .offers{
-    min-height: 100vh;
+    //min-height: 100vh;
+    h2{
+        font-size: 28px;
+    }
+}
 
+.shop{
+    //min-height: 100vh;
+    h2{
+        font-size: 28px;
+    }
 }
 
 footer{
