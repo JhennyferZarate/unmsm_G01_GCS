@@ -38,7 +38,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(session({
-    secret: 'faztmysqlnode',
+    secret: 'GCSMySQL',
     reseave: false,
     saveUninitialized: false,
     store: new MySQLStore(database)

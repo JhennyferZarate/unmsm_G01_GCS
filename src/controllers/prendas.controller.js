@@ -2,75 +2,75 @@ const express = require('express');
 const pool = require('../database');
 
 //ROPA DE BAÑO
-G_ropa_banio = async(req, res) => {
+const G_ropa_banio = async(req, res) => {
     res.render('prenda/ropabaño');
     return next();
 }
 
-P_ropa_banio = async(req, res) => {
+const P_ropa_banio = async(req, res) => {
 
     return next();
 }
 
 //VESTIDOS
-G_vestidos = async(req, res) => {
+const G_vestidos = async(req, res) => {
     res.render('prenda/vestidos');
 }
 
-P_vestidos = async(req, res) => {
+const P_vestidos = async(req, res) => {
 
 }
 
 //POLOS
-G_polos = async(req, res) => {
+const G_polos = async(req, res) => {
     res.render('prenda/polos');
 }
 
-P_polos = async(req, res) => {
+const P_polos = async(req, res) => {
 
 }
 
 //ROPA INTERIOR
-G_ropa_interior = async(req, res) => {
+const G_ropa_interior = async(req, res) => {
     res.render('prenda/ropainterior');
 }
 
-P_ropa_interior = async(req, res) => {
+const P_ropa_interior = async(req, res) => {
 
 }
 
 //SASTRE
-G_sastre = async(req, res) => {
+const G_sastre = async(req, res) => {
     res.render('prenda/sastre');
 }
 
-P_sastre = async(req, res) => {
+const P_sastre = async(req, res) => {
 
 }
 
 //CHOMPAS
-G_chompas = async(req, res) => {
+const G_chompas = async(req, res) => {
     res.render('prenda/chompas');
 }
 
-P_chompas = async(req, res) => {
+const P_chompas = async(req, res) => {
 }
 
 //PIJAMA
-G_pijama = async(req, res) => {
+const G_pijama = async(req, res) => {
     res.render('prenda/pijama');
 }
 
-P_pijama = async(req, res) => {
+const P_pijama = async(req, res) => {
 
 }
 
 //PANTALONES
-G_pantalones = async(req, res) => {
+const G_pantalones = async(req, res) => {
     res.render('prenda/pantalones');
 }
 
-P_pantalones = async(req, res) => {
+const P_pantalones = async(req, res) => {
 
 }
 

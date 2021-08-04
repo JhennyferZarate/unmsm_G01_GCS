@@ -13,29 +13,29 @@ P_carrito = async(req, res) => {
 }
 
 //FORMULARIO DE DATOS
-G_formulario_datos = async(req, res) => {
+const G_formulario_datos = async(req, res) => {
     res.render('formulario/dato');
 }
 
-P_formulario_datos = async(req, res) => {
+const P_formulario_datos = async(req, res) => {
 
 }
 
 //FORMULARIO DE ENVIO
-G_formulario_envio = async(req, res) => {
+const G_formulario_envio = async(req, res) => {
     res.render('formulario/envio');
 }
 
-P_formulario_envio = async(req, res) => {
+const P_formulario_envio = async(req, res) => {
 
 }
 
 //FORMULARIO DE PAGO
-G_formulario_pago = async(req, res) => {
+const G_formulario_pago = async(req, res) => {
     res.render('formulario/pago');
 }
 
-P_formulario_pago = async(req, res) => {
+const P_formulario_pago = async(req, res) => {
 
 }
 
