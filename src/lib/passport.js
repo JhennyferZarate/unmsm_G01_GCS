@@ -5,14 +5,14 @@ const pool = require('../database');
 const helpers = require('./helpers');
 
 passport.use('local.signin', new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password',
+    usernameField: 'mailC',
+    passwordField: 'pass',
     passReqToCallback: true
-}, async(req,email,password,done) => {
-    const rows = await pool.query('SELECT * FROM users WHERE codigo = ?', [codigo]);
+}, async(req, mailC, pass, done) => {
+    const rows = await pool.query('SELECT * FROM cliente WHERE mailC = ?', [mailC]);
     if (rows.length > 0) {
         const user = rows[0];
-        //const validPassword = await helpers.matchPassword(contrasena, user.contrasena)
+        const validPassword = await helpers.matchPassword(pass, user.pass)
         if (validPassword) {
             done(null, user);
         } else {
@@ -24,13 +24,32 @@ passport.use('local.signin', new LocalStrategy({
 }));
 
 passport.use('local.signup', new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password',
+    usernameField: 'mailC',
+    passwordField: 'pass',
     passReqToCallback: true
-}, async(req,email,password,done) => {
-    console.log(email);
-    console.log(password);
-    return done(null, false);
+}, async(req, mailC, pass, done) => {
+    const { 
+        nomC,
+        apeC,
+        apeC2,
+        dniC,
+        telfC 
+    } = req.body;
+    
+    let newUser = {
+        nomC,
+        apeC,
+        apeC2,
+        dniC,
+        telfC,
+        mailC,
+        pass,
+        Medidas_idMedidas: 1
+    };
+    newUser.pass = await helpers.encryptPassword(pass);
+    const result = await pool.query('INSERT INTO cliente SET ? ', newUser);
+    newUser.idCliente = result.insertId;
+    return done(null, newUser);
 }));
 
 passport.serializeUser((user, done) => {
