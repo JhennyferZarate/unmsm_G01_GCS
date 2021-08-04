@@ -8,21 +8,18 @@ passport.use('local.signin', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
-}, async(req,email,password) => {
-    const rows = await pool.query('SELECT * FROM cliente WHERE mailC = ?', [email]);
+}, async(req,email,password,done) => {
+    const rows = await pool.query('SELECT * FROM users WHERE codigo = ?', [codigo]);
     if (rows.length > 0) {
         const user = rows[0];
-        console.log(user);
-        //const validPassword = await helpers.matchPassword(password, user.password);
-        /*
+        //const validPassword = await helpers.matchPassword(contrasena, user.contrasena)
         if (validPassword) {
             done(null, user);
         } else {
-            done(null, false);
+            done(null, false, req.flash('message', 'Contraseña Incorrecta'));
         }
-        */
     } else {
-        return done(null, false);
+        return done(null, false, req.flash('message', 'El usuario no existe'));
     }
 }));
 
@@ -30,9 +27,10 @@ passport.use('local.signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
-}, async(req,email,password) => {
-    const info = req.body;
-    console.log(info);
+}, async(req,email,password,done) => {
+    console.log(email);
+    console.log(password);
+    return done(null, false);
 }));
 
 passport.serializeUser((user, done) => {
@@ -40,6 +38,6 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async(id, done) => {
-    const rows = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
+    const rows = await pool.query('SELECT * FROM cliente WHERE id = ?', [id]);
     done(null, rows[0]);
 });
