@@ -4,7 +4,7 @@ module.exports = {
     database: {
         host: 'localhost',
         user: 'root',
-        password: '74881894quispe',
-        database: 'mmp'
+        password: 'FisiCalidad',
+        database: 'mydb'
     }
 };
