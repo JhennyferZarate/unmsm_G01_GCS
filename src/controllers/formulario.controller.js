@@ -15,34 +15,28 @@ P_carrito = async(req, res) => {
 //FORMULARIO DE DATOS
 G_formulario_datos = async(req, res) => {
     res.render('formulario/dato');
-    return next();
 }
 
 P_formulario_datos = async(req, res) => {
 
-    return next();
 }
 
 //FORMULARIO DE ENVIO
 G_formulario_envio = async(req, res) => {
     res.render('formulario/envio');
-    return next();
 }
 
 P_formulario_envio = async(req, res) => {
 
-    return next();
 }
 
 //FORMULARIO DE PAGO
 G_formulario_pago = async(req, res) => {
     res.render('formulario/pago');
-    return next();
 }
 
 P_formulario_pago = async(req, res) => {
 
-    return next();
 }
 
 module.exports = {

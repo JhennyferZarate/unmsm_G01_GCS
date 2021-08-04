@@ -2,7 +2,6 @@ const passport = require('passport');
 
 Rget = async(req, res) => {
     res.render('auten/registro');
-    return next();
 }
 
 Rpost = async(req, res) => {
@@ -11,12 +10,11 @@ Rpost = async(req, res) => {
         failureRedirect: '/registro',
         failureFlash: true
     })
-    return next();
 }
 
 Iget = async(req, res) => {
     res.render('auten/ingreso');
-    return next();
+
 }
 
 Ipost = async(req, res, next) => {
