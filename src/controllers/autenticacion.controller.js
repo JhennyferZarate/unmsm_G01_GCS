@@ -1,25 +1,23 @@
 const passport = require('passport');
 
-Rget = async(req, res) => {
+const Rget = async(req, res) => {
     res.render('auten/registro');
-    return next();
 }
 
-Rpost = async(req, res) => {
+const Rpost = async(req, res) => {
     passport.authenticate('local.signup', {
         successRedirect: '/perfil',
         failureRedirect: '/registro',
         failureFlash: true
     })
-    return next();
 }
 
-Iget = async(req, res) => {
+const Iget = async(req, res) => {
     res.render('auten/ingreso');
-    return next();
+
 }
 
-Ipost = async(req, res, next) => {
+const Ipost = async(req, res, next) => {
     passport.authenticate('local.signin', {
         successRedirect: '/perfil',
         failureRedirect: '/ingreso',
@@ -27,7 +25,7 @@ Ipost = async(req, res, next) => {
     })(req, res, next);
 }
 
-Out = async(req, res, next) => {
+const Out = async(req, res, next) => {
     req.logOut();
     res.redirect('/');
 }

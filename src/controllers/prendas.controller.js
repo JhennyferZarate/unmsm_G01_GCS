@@ -2,90 +2,76 @@ const express = require('express');
 const pool = require('../database');
 
 //ROPA DE BAÑO
-G_ropa_banio = async(req, res) => {
+const G_ropa_banio = async(req, res) => {
     res.render('prenda/ropabaño');
     return next();
 }
 
-P_ropa_banio = async(req, res) => {
+const P_ropa_banio = async(req, res) => {
 
     return next();
 }
 
 //VESTIDOS
-G_vestidos = async(req, res) => {
+const G_vestidos = async(req, res) => {
     res.render('prenda/vestidos');
-    return next();
 }
 
-P_vestidos = async(req, res) => {
+const P_vestidos = async(req, res) => {
 
-    return next();
 }
 
 //POLOS
-G_polos = async(req, res) => {
+const G_polos = async(req, res) => {
     res.render('prenda/polos');
-    return next();
 }
 
-P_polos = async(req, res) => {
+const P_polos = async(req, res) => {
 
-    return next();
 }
 
 //ROPA INTERIOR
-G_ropa_interior = async(req, res) => {
+const G_ropa_interior = async(req, res) => {
     res.render('prenda/ropainterior');
-    return next();
 }
 
-P_ropa_interior = async(req, res) => {
+const P_ropa_interior = async(req, res) => {
 
-    return next();
 }
 
 //SASTRE
-G_sastre = async(req, res) => {
+const G_sastre = async(req, res) => {
     res.render('prenda/sastre');
-    return next();
 }
 
-P_sastre = async(req, res) => {
+const P_sastre = async(req, res) => {
 
-    return next();
 }
 
 //CHOMPAS
-G_chompas = async(req, res) => {
+const G_chompas = async(req, res) => {
     res.render('prenda/chompas');
-    return next();
 }
 
-P_chompas = async(req, res) => {
-    return next();
+const P_chompas = async(req, res) => {
 }
 
 //PIJAMA
-G_pijama = async(req, res) => {
+const G_pijama = async(req, res) => {
     res.render('prenda/pijama');
-    return next();
 }
 
-P_pijama = async(req, res) => {
+const P_pijama = async(req, res) => {
 
-    return next();
 }
 
 //PANTALONES
-G_pantalones = async(req, res) => {
+const G_pantalones = async(req, res) => {
     res.render('prenda/pantalones');
-    return next();
 }
 
-P_pantalones = async(req, res) => {
+const P_pantalones = async(req, res) => {
 
-    return next();
 }
 
 module.exports = {
