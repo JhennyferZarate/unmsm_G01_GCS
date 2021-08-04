@@ -16,10 +16,10 @@ passport.use('local.signin', new LocalStrategy({
         if (validPassword) {
             done(null, user);
         } else {
-            done(null, false, req.flash('message', 'Contraseña Incorrecta'));
+            done(null, false);
         }
     } else {
-        return done(null, false, req.flash('message', 'El usuario no existe'));
+        return done(null, false);
     }
 }));
 
@@ -46,10 +46,16 @@ passport.use('local.signup', new LocalStrategy({
         pass,
         Medidas_idMedidas: 1
     };
-    newUser.pass = await helpers.encryptPassword(pass);
-    const result = await pool.query('INSERT INTO cliente SET ? ', newUser);
-    newUser.idCliente = result.insertId;
-    return done(null, newUser);
+
+    const rows = await pool.query('SELECT * FROM cliente WHERE mailC = ?', [mailC]);
+    if (rows>0) {
+        return done(null,false);
+    } else {
+        newUser.pass = await helpers.encryptPassword(pass);
+        const result = await pool.query('INSERT INTO cliente SET ? ', newUser);
+        newUser.idCliente = result.insertId;
+        return done(null, newUser);
+    }
 }));
 
 passport.serializeUser((user, done) => {
