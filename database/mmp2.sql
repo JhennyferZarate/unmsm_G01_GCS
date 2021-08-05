@@ -8,6 +8,7 @@ CREATE TABLE `heroku_9bb4630feaaa67c`.`info_cliente` (
     `apeC` VARCHAR(255) NOT NULL,
     `apeC2` VARCHAR(255) NULL,
     `dniC` INT NOT NULL,
+    `telC` INT NOT NULL,
     PRIMARY KEY (`id`)
 );
 
