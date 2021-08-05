@@ -58,7 +58,7 @@ const Rppost = async(req,res) =>{
         });
     } else {
         /**
-          req.flash('El usuario no ha sido registrado');
+         * req.flash('El usuario no ha sido registrado');
          */
     }
     res.redirect('/ingreso');
