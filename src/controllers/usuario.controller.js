@@ -1,43 +1,65 @@
 const express = require('express');
 const pool = require('../database');
 
-usuarioGet = async(req, res) => {
+const usuarioGet = async(req, res) => {
     res.render('usuario/perfil');
-    return next();
 }
 
-usuarioPost = async(req, res) => {
+const usuarioPost = async(req, res) => {
     res.redirect('/perfil');
-    return next();
 }
 
-editarGet = async(req, res) => {
+const editarGet = async(req, res) => {
     const { id } = req.params;
-    return render('perfil/editar/'+ id);
+    
+
+
+    res.render('usuario/editar');
 }
 
-editarPost = async(req, res) => {
+const editarPost = async(req, res) => {
     const { id } = req.params;
-    const {nombre, apellido1, apellido2, dni, telefono, mail, pass, medidas}=req.body;
-    const newuser={
-        nombre,
-        apellido1,
-        apellido2,
-        dni,
-        telefono,
-        mail,
+    const {
+        nomC,
+        apeC,
+        apecC2,
+        dniC,
+        telfC,
+        mailC,
         pass,
-        medidas,
-    }
-    req.flash("success", "Datos ac")
-    res.redirect("/perfil");
-    return next();
+        altura,
+        busto,
+        cintura,
+        cadera
+    } = req.body;
+
+    const nuevoU = {
+        nomC,
+        apeC,
+        apecC2,
+        dniC,
+        telfC,
+        mailC,
+        pass
+    };
+
+    const nuevoM = {
+        altura,
+        busto,
+        cintura,
+        cadera
+    };
+
+    const medida = await pool 
+
+    await pool.query("UPDATE cliente SET ? WHERE idCliente = ?",[nuevoU,id]);
+
+    res.render('usuario/editar/' + id);
 }
 
-eliminar = async(req, res) => {
+const eliminar = async(req, res) => {
     const { id } = req.params;
     res.redirect('/perfil');
-    return next();
 }
 
 module.exports = { usuarioGet, usuarioPost, editarGet, editarPost, eliminar };
