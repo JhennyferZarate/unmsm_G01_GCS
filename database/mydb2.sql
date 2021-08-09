@@ -125,17 +125,18 @@ CREATE TABLE `mydb`.`carrito` (
 );
 
 CREATE TABLE `mydb`.`metodos` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `metodo` VARCHAR(45) NOT NULL,
-  `numeros` BIGINT NULL,
-  PRIMARY KEY (`id`));
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `metodo` VARCHAR(45) NOT NULL,
+    `numeros` BIGINT NULL,
+    PRIMARY KEY (`id`));
 
 CREATE TABLE `mydb`.`promociones` (
     `id` INT NOT NULL,
     `codigo` BIGINT NOT NULL,
     `porcentaje` INT NOT NULL,
-    PRIMARY KEY (`id`));
-  
+    PRIMARY KEY (`id`)
+);
+
 CREATE TABLE `mydb`.`pagos` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `fecha` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
