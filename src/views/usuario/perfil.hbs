@@ -1,0 +1,80 @@
+<div class="container-fluid register">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-5">
+                <h3 class="text-center">PERFIL</h3>
+                <form class="my-1" action="/perfil" method="POST">
+                    <div class="form-row align-items-center justify-content-around text-center text-md-left">
+                        <div class="col-10 col-md-4 form-group mb-4">
+                            <label for="name">Nombre:</label>
+                            <input type="text" class="form-control py-2" id="name" placeholder="INGRESE SU NOMBRE">
+                        </div>
+
+                        <div class="offset-md-1 col-10 col-md-4 form-group mb-4">
+                            <label for="last_one_name">Apellido Paterno:</label>
+                            <input type="text" class="form-control py-2" id="last_one_name" placeholder="INGRESE SU APELLIDO PATERNO">
+                        </div>
+
+                        <div class="col-10 col-md-4 form-group mb-4">
+                            <label for="last_two_name">Apellido Materno:</label>
+                            <input type="text" class="form-control py-2" id="last_two_name" placeholder="INGRESE SU APELLIDO MATERNO">
+                        </div>
+
+                        <div class="offset-md-1 col-10 col-md-4 form-group mb-4">
+                            <label for="dni">DNI:</label>
+                            <input type="number" class="form-control py-2" id="dni" placeholder="INGRESE SU DNI">
+                        </div>
+
+                        <div class="col-10 col-md-4 form-group mb-4">
+                            <label for="phone">Celular:</label>
+                            <input type="number" class="form-control py-2" id="phone" placeholder="INGRESE SU CELULAR">
+                        </div>
+
+                        <div class="offset-md-1 col-10 col-md-4 form-group mb-4">
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" class="form-control py-2" id="email" placeholder="INGRESE SU CORREO ELECTRÓNICO">
+                        </div>
+
+                        <div class="offset-md-1 col-12 col-md-11 form-group mb-2" style="margin: 0px 0px 0px 35px;">
+                            <label for="email">Ingresa tus datos(Cm):</label>
+                        </div>  
+
+                        <div class="col-10 col-md-2 form-group mb-4" style="margin: 0px 50px 0px 60px;">
+                            <label for="number">Busto:</label>
+                            <input type="number" class="form-control py-2" id="number" placeholder="BUSTO">
+                        </div>
+
+                        <div class="offset-md-1 col-10 col-md-2 form-group mb-3" style="margin: 0px 0px 0px 50px;">
+                            <label for="number">Cintura:</label>
+                            <input type="number" class="form-control py-2" id="number" placeholder="CINTURA">
+                        </div>
+
+                        <div class="col-10 col-md-2 form-group mb-3" style="margin: 0px 50px 0px 60px;">
+                            <label for="number">Cadera:</label>
+                            <input type="number" class="form-control py-2" id="number" placeholder="CADERA">
+                        </div>
+
+                        <div class="col-10 col-md-4 form-group mb-4">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" class="form-control py-2" id="password" placeholder="INGRESE SU CONTRASEÑA">
+                        </div>
+
+                        <div class="offset-md-1 col-10 col-md-4 form-group mb-4">
+                            <label for="confirm_password">Confirmar Contraseña:</label>
+                            <input type="confirm_password" class="form-control py-2" id="confirm_password" placeholder="CONFIRMAR LA CONTRASEÑA">
+                        </div>
+
+<<<<<<< HEAD
+                        <button type="submit" class="btn btn-principal text-center my-1 col-md-5 col-12 py-2">CAMBIAR DATOS</button>
+=======
+
+                        <div class="col-12 text-center mt-1">
+                            <button type="submit" class="btn btn-principal mb-1 col-md-5 col-7 py-2" href="/perfil/edit/{{id}}">CAMBIAR DATOS</button>
+                        </div>
+>>>>>>> 2b7167c180d5b0df96b6bdf069b54fcb9cde988d
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

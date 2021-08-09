@@ -13,8 +13,8 @@ const RutaIndex = require('./routes/index.routes');
 const RutaAuth = require('./routes/autenticacion.routes');
 const RutaUsuario = require('./routes/usuario.routes');
 const RutaPrenda = require('./routes/prendas.routes');
-const RutaFormulario = require('./routes/formulario.routes')
-    //Inicializations
+const RutaFormulario = require('./routes/formulario.routes');
+//Inicializations
 const app = express();
 require('./lib/passport');
 
@@ -38,7 +38,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(session({
-    secret: 'faztmysqlnode',
+    secret: 'GCSMySQL',
     reseave: false,
     saveUninitialized: false,
     store: new MySQLStore(database)

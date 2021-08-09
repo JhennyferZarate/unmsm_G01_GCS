@@ -1,9 +1,10 @@
-$font-principal: 'Poppins';
+$font-principal: 'Poppins', sans-serif;
 $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
 
 *{
     padding: 0;
     margin: 0;
+    font-family: $font-principal;
 }
 
 
@@ -11,11 +12,20 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     background: $background-principal;
     color:white;
     border-radius: 30px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
     &:hover{
         filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
         transform: scale(1.2);
         transition: transform 500ms;
     }
+}
+
+.btn-pink{
+    background: #E5C2E0;
+    color:white;
+    border-radius: 30px;
+    padding: 10px 30px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .navbar{
@@ -24,6 +34,9 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
         font-family: $font-principal;
         font-size: 28px;
     }
+    &-nav{
+        text-transform: uppercase;
+    }
 }
 
 .login{
@@ -31,12 +44,88 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     .row{
         min-height: 100vh;
         h2{
-            margin: 2rem 0rem;
+            margin-bottom: 1rem;
             font-weight: bold;
+            font-size: 28px;
         }
         h3{
+            margin-bottom: 1rem;
+            font-style: italic;
+            font-size: 20px;
+        }
+        .card{
+            padding: 3rem auto;
+            border-radius: 30px;
+            form{
+                .input-group-text{
+                    border-radius: 30px 0 0 30px;
+                    background: transparent;
+                }
+                input{
+                    height: 46px;
+                    border-radius: 0px 30px 30px 0;
+                    background: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
+                    opacity: 0.5;
+                    &::placeholder{
+                        opacity: 1;
+                    }
+                }
+                p{
+                    color: #979595;
+                    font-style: italic;
+                    text-transform: capitalize;
+                    a{
+                        font-style: oblique;
+                        text-decoration: underline;
+                        color: #979595;
+                        &:hover{
+                            color: #979595;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.register{
+    background: $background-principal;
+    .row{
+        min-height: 100vh;
+        h3{
             margin: 2rem 0rem;
-            font-style: italic;   
+            font-weight: bold; 
+            text-transform: capitalize;
+        }
+        .card{
+            margin: 0 auto;
+            padding: 1rem 1rem 5rem 1rem;
+            width: 80%;
+            border-radius: 30px;
+            form{
+                label{
+                    font-weight: 600;
+                }
+                input{
+                    border-radius: 30px;
+                    font-size: 14px;
+                    &::placeholder{
+                        color: #979595;
+                    }
+                }
+                p{
+                    color: #979595;
+                    font-style: italic;
+                    a{
+                        font-style: oblique;
+                        text-decoration: underline;
+                        color: #979595;
+                        &:hover{
+                            color: #979595;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -49,47 +138,62 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     }
 }
 
-.carousel-1{
-    button{
-        display: none;
+.info{
+    &-background{
+        position: relative;
     }
-}
-
-.card{
-    &-login{
-        background-color: #FAFAFA;
-        border-radius: 30px;
-        width: 100%;
-        .btn{
-            padding: 0.75rem 0;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-        }
-        p{
-            color: #979595;
-            font-style: italic;
-        }
-        a{
-            color: #979595;
-            font-style: italic;
-            text-decoration: underline;
-        }
-    }
-}
-
-.input-group{
     &-text{
-        border-radius: 30px;
-        background-color: white;
-    }
-    input{
-        background: linear-gradient(90deg, rgba(229, 193, 223, 0.1) 0%, rgba(173, 220, 242, 0.1) 100%);
-        border-radius: 30px;
-        color: #9A999E;
-        height: 46px;
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: capitalize;
     }
 }
 
 .offers{
-    min-height: 100vh;
+    //min-height: 100vh;
+    h2{
+        font-size: 28px;
+    }
+}
 
+.card{
+    &-shop{
+        border-radius: 30px;
+        border: white 2px solid;
+        &-type{
+            font-size: 14px;
+            fill: #979595;
+        }
+        &-name{
+            font-size: 18px;
+        }
+        &-price{
+            font-size: 18px;
+        }
+    }
+}
+
+.shop{
+    //min-height: 100vh;
+    h2{
+        font-size: 28px;
+    }
+}
+
+footer{
+    background: $background-principal;
+    img{
+        margin: 0.2rem 1rem;
+    }
+    .group{
+        font-weight: bold;
+    }
+    .uni{
+        font-style: italic;
+        font-weight: bolder;
+    }
 }
