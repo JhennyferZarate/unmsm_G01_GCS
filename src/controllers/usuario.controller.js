@@ -14,47 +14,126 @@ const editarGet = async(req, res) => {
     
 
 
-    res.render('usuario/editar');
+    res.render('usuario/editar_perfil');
 }
 
 const editarPost = async(req, res) => {
-    const { id } = req.params;
-    const {
-        nomC,
-        apeC,
-        apecC2,
-        dniC,
-        telfC,
-        mailC,
-        pass,
-        altura,
-        busto,
-        cintura,
-        cadera
-    } = req.body;
+    
+    /**
+     * id del cliente
+     */
+    const {id} = req.params;
+    console.log(`estamos en editar perfil: ${id}`);
+    const clientes = await pool.query("SELECT * FROM cliente WHERE id = ?",[id]);
+    const cliente = clientes[0];
 
-    const nuevoU = {
-        nomC,
-        apeC,
-        apecC2,
-        dniC,
-        telfC,
-        mailC,
-        pass
-    };
+    if(clientes.length > 0){
+        /**
+         * Recuperar idU, idI, idT
+         */
+        const idU = cliente.id_user;
+        const idI = cliente.id_info;
+        let idT = cliente.id_tamaño
+        console.log(idI);
+        console.log(idU);
+        console.log(idT);
+        
 
-    const nuevoM = {
-        altura,
-        busto,
-        cintura,
-        cadera
-    };
+        /**
+         * parametos de la persona
+         */
+        let {
+            nomC,
+            apeC,
+            apeC2,
+            dniC,
+            telfC,
+            mailC,
+            pass,
+            busto,
+            cintura,
+            cadera
+        } = req.body;
 
-    const medida = await pool 
+        const rows = await pool.query('SELECT * FROM user_cliente WHERE mailC = ?', [mailC]);
+        if (!(rows.length > 0)){
+            /**
+             * Actualizar usuario
+             */
+            const editU = {
+                mailC,
+                pass
+            };
 
-    await pool.query("UPDATE cliente SET ? WHERE idCliente = ?",[nuevoU,id]);
+            await pool.query("UPDATE user_cliente SET ? WHERE id = ?",[editU,idU]);
+            /**
+             * Actulizar info
+             */
+            const editI = {
+                nomC,
+                apeC,
+                apeC2,
+                dniC,
+                telfC
+            };
 
-    res.render('usuario/editar/' + id);
+            await pool.query("UPDATE info_cliente SET ? WHERE id = ?",[editI,idI]);
+
+            /**
+             * Actualizar medida
+             */
+            if (idT != undefined || idT != null){
+                busto = parseFloat(busto).toFixed(2);
+                cintura = parseFloat(cintura).toFixed(2);
+                cadera = parseFloat(cadera).toFixed(2);
+                console.log('idT != null');
+                const editT = {
+                    busto,
+                    cintura,
+                    cadera
+                };
+                await pool.query("UPDATE tamaño SET ? WHERE id = ?",[editT,idT]);
+
+            } else {
+                busto = parseFloat(busto).toFixed(2);
+                cintura = parseFloat(cintura).toFixed(2);
+                cadera = parseFloat(cadera).toFixed(2);
+
+                const editT = {
+                    busto,
+                    cintura,
+                    cadera
+                };
+
+                
+
+                const nuevoT = await pool.query("INSERT INTO tamaño SET ?",[editT]);
+                editT.id = nuevoT.insertId;
+                idT = editT.id;
+
+                /**
+                 * Actualizar cliente
+                 */
+                const editC = {
+                    id_info:idI,
+                    id_user:idU,
+                    id_tamaño:idT
+                };
+
+                await pool.query("UPDATE cliente SET ? WHERE id = ?",[editC,id]);
+            }
+            
+        }else{
+            //res.redirect('/perfil/editar/' + id);
+            
+        }
+
+        //res.status(200).json({message: 'todo ok'});
+        //res.redirect('/perfil/');
+    }else{
+        //res.redirect('/perfil/editar/' + id);
+        //res.status(200).json({message: 'todo mal'});
+    }   
 }
 
 const eliminar = async(req, res) => {
