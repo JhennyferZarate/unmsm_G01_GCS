@@ -3,9 +3,17 @@ $(document).ready(function(){
         arrows: false,
         infinite: true,
         speed: 300,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 5,
+        slidesToScroll: 5,
         responsive: [
+            {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                infinite: true,
+            }
+            },
             {
             breakpoint: 1024,
             settings: {
