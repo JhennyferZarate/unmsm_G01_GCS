@@ -37,6 +37,9 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     &-nav{
         text-transform: uppercase;
     }
+    .nav-link{
+        font-weight: bold;
+    }
 }
 
 .login{
@@ -160,8 +163,31 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     }
 }
 
+.separator{
+    position: relative;
+    span:nth-of-type(1){
+        position: absolute;
+        width: 30%;
+        height: 10px;
+        background: $background-principal;
+        left: 0;
+        top: 50%;
+        margin-right: 3rem;
+    }
+    span:nth-of-type(2){
+        position: absolute;
+        width: 30%;
+        height: 10px;
+        background: $background-principal;
+        right: 0;
+        top: 50%;
+        margin-left: 3rem;
+    }
+}
+
 .card{
     &-shop{
+        width: 250px;
         border-radius: 30px;
         border: white 2px solid;
         &-type{
