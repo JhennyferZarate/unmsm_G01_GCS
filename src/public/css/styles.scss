@@ -212,6 +212,15 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     }
 }
 
+.filter{
+    input[type="checkbox"]{
+        border-radius: 50%;
+        &:checked{
+            background: $background-principal;
+        }
+    }
+}
+
 footer{
     background: $background-principal;
     img{
