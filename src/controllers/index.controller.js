@@ -6,7 +6,7 @@ const index = async(req, res) => {
 }
 
 const nosotros = async(req, res) => {
-    res.render('nosotros');
+    res.render('index/nosotros');
 }
 
 const info = async(req, res) => {
@@ -14,7 +14,7 @@ const info = async(req, res) => {
 }
 
 const error = async(req, res) => {
-    res.render('error');
+    res.render('index/error');
 }
 
 

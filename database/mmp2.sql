@@ -21,10 +21,9 @@ CREATE TABLE `heroku_9bb4630feaaa67c`.`user_cliente` (
 
 CREATE TABLE `heroku_9bb4630feaaa67c`.`tamaño` (
     `id` INT NOT NULL AUTO_INCREMENT,
-    `tipo` VARCHAR(45) NOT NULL,
-    `busto` DECIMAL(10,2) NOT NULL UNIQUE,
-    `cintura` DECIMAL(10,2) NOT NULL UNIQUE,
-    `cadera` DECIMAL(10,2) NOT NULL UNIQUE,
+    `busto` DECIMAL(10,2) NOT NULL,
+    `cintura` DECIMAL(10,2) NOT NULL,
+    `cadera` DECIMAL(10,2) NOT NULL,
     PRIMARY KEY (`id`)
 );
 
