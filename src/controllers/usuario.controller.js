@@ -1,6 +1,9 @@
 const express = require('express');
 const pool = require('../database');
 
+/**
+ * GET + POST: perfil de usuario
+ */
 const usuarioGet = async(req, res) => {
     res.render('usuario/perfil');
 }
@@ -9,11 +12,12 @@ const usuarioPost = async(req, res) => {
     res.redirect('/perfil');
 }
 
+/**
+ * GET + POST: editar perfil de usuario
+ */
 const editarGet = async(req, res) => {
     const { id } = req.params;
     
-
-
     res.render('usuario/editar_perfil');
 }
 

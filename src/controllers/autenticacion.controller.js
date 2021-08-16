@@ -66,6 +66,17 @@ const Rppost = async(req,res) =>{
 }
 
 /**
+ * GET + POST: cambio de contraseña
+ */
+const Cget = async(req, res) => {
+    
+}
+
+const Cpost = async(req, res) => {
+    
+}
+
+/**
  * GET: Cerrar Sesion
  */
 
@@ -74,4 +85,4 @@ const Out = async(req, res, next) => {
     res.redirect('/');
 }
 
-module.exports = { Rget, Iget, Rpget, Rppost, Out };
+module.exports = { Rget, Iget, Cget, Cpost, Rpget, Rppost, Out };

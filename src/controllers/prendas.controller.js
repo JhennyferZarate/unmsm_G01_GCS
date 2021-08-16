@@ -1,17 +1,6 @@
 const express = require('express');
 const pool = require('../database');
 
-//ROPA DE BAÑO
-const G_ropa_banio = async(req, res) => {
-    res.render('prenda/ropabaño');
-    return next();
-}
-
-const P_ropa_banio = async(req, res) => {
-
-    return next();
-}
-
 //VESTIDOS
 const G_vestidos = async(req, res) => {
     res.render('prenda/vestidos');
@@ -30,21 +19,21 @@ const P_polos = async(req, res) => {
 
 }
 
-//ROPA INTERIOR
-const G_ropa_interior = async(req, res) => {
+//CASACAS
+const G_casacas= async(req, res) => {
     res.render('prenda/ropainterior');
 }
 
-const P_ropa_interior = async(req, res) => {
+const P_casacas = async(req, res) => {
 
 }
 
-//SASTRE
-const G_sastre = async(req, res) => {
+//BLUSAS
+const G_blusas = async(req, res) => {
     res.render('prenda/sastre');
 }
 
-const P_sastre = async(req, res) => {
+const P_blusas = async(req, res) => {
 
 }
 
@@ -65,30 +54,30 @@ const P_pijama = async(req, res) => {
 
 }
 
-//PANTALONES
-const G_pantalones = async(req, res) => {
+//JEANS
+const G_jeans = async(req, res) => {
     res.render('prenda/pantalones');
 }
 
-const P_pantalones = async(req, res) => {
+const P_jeans = async(req, res) => {
 
 }
 
 module.exports = {
-    G_ropa_banio,
-    P_ropa_banio,
+    G_casacas,
+    P_casacas,
     G_vestidos,
     P_vestidos,
     G_polos,
     P_polos,
     G_ropa_interior,
     P_ropa_interior,
-    G_sastre,
-    P_sastre,
+    G_blusas,
+    P_blusas,
     G_chompas,
     P_chompas,
     G_pijama,
     P_pijama,
-    G_pantalones,
-    P_pantalones
+    G_jeans,
+    P_jeans
 };
