@@ -3,36 +3,53 @@ const router = express.Router();
 const pool = require('../database');
 const Prenda = require('../controllers/prendas.controller');
 
-//ROPA DE BAÑO
-router.get('/prenda/RopaBanio', Prenda.G_ropa_banio);
-router.post('/prenda/RopaBanio', Prenda.P_ropa_banio);
-
 //VESTIDOS
-router.get('/prenda/Vestidos', Prenda.G_vestidos);
-router.post('/prenda/Vestidos', Prenda.P_vestidos);
+router.get('/vestidos', Prenda.G_vestidos);
+router.post('/vestidos', Prenda.P_vestidos);
+
+router.get('/vestidos/:id', Prenda.G_vestidos_und);
+router.post('/vestidos/:id', Prenda.P_vestidos_und);
 
 //POLOS
-router.get('/prenda/Polos', Prenda.G_polos);
-router.post('/prenda/Polos', Prenda.P_polos);
+router.get('/polos', Prenda.G_polos);
+router.post('/polos', Prenda.P_polos);
 
-//ROPA INTERIOR
-router.get('/prenda/RopaInterior', Prenda.G_ropa_interior);
-router.post('/prenda/RopaInterior', Prenda.P_ropa_banio);
+router.get('/polos/:id', Prenda.G_polos_und);
+router.post('/polos/:id', Prenda.P_polos_und);
 
-//SASTRE
-router.get('/prenda/Sastre', Prenda.G_sastre);
-router.post('/prenda/Sastre', Prenda.P_sastre);
+//CASACAS
+router.get('/casacas', Prenda.G_casacas);
+router.post('/casacas', Prenda.P_casacas);
+
+router.get('/casacas/:id', Prenda.G_casacas_und);
+router.post('/casacas/:id', Prenda.P_casacas_und);
+
+//BLUSAS
+router.get('/blusas', Prenda.G_blusas);
+router.post('/blusas', Prenda.P_blusas);
+
+router.get('/blusas/:id', Prenda.G_blusas_und);
+router.post('/blusas/:id', Prenda.P_blusas_und);
 
 //CHOMPAS
-router.get('/prenda/Chompas', Prenda.G_chompas);
-router.post('/prenda/Chompas', Prenda.P_chompas);
+router.get('/chompas', Prenda.G_chompas);
+router.post('/chompas', Prenda.P_chompas);
 
-//PIJAMA
-router.get('/prenda/Pijama', Prenda.G_pijama);
-router.post('/prenda/Pijama', Prenda.P_pijama);
+router.get('/chompas/:id', Prenda.G_chompas_und);
+router.post('/chompas/:id', Prenda.P_chompas_und);
 
-//PANTALONES
-router.get('/prenda/Pantalones', Prenda.G_pantalones);
-router.post('/prenda/Pantalones', Prenda.P_pantalones);
+//FALDAS
+router.get('/faldas', Prenda.G_pijama);
+router.post('/faldas', Prenda.P_pijama);
+
+router.get('/faldas/:id', Prenda.G_pijama_und);
+router.post('/faldas/:id', Prenda.P_pijama_und);
+
+//JEANS
+router.get('/jeans', Prenda.G_jeans);
+router.post('/jeans', Prenda.P_jeans);
+
+router.get('/jeans/:id', Prenda.G_jeans_und);
+router.post('/jeans/:id', Prenda.P_jeans_und);
 
 module.exports = router;
