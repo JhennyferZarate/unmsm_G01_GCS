@@ -1,24 +1,20 @@
 const express = require('express');
 const pool = require('../database');
 
-index = async(req, res) => {
+const index = async(req, res) => {
     res.render('index/index');
-    return next();
 }
 
-nosotros = async(req, res) => {
-    res.render('nosotros');
-    return next();
+const nosotros = async(req, res) => {
+    res.render('index/nosotros');
 }
 
-info = async(req, res) => {
+const info = async(req, res) => {
     res.render('info');
-    return next();
 }
 
-error = async(req, res) => {
-    res.render('error');
-    return next();
+const error = async(req, res) => {
+    res.render('index/error');
 }
 
 

@@ -4,14 +4,44 @@ const passport = require('passport');
 const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 const Auth = require('../controllers/autenticacion.controller')
 
-router.get('/registro', isNotLoggedIn, Auth.Rget);
+/**
+ * Registro de usuario
+ */
+// GET
+router.get('/registro', Auth.Rget);
+// POST
+router.post('/registro', passport.authenticate('local.signup', {
+    successRedirect: '/perfil',
+    failureRedirect: '/registro',
+    failureFlash: true
+}));
 
-router.post('/registro', isNotLoggedIn, Auth.Rpost);
+/**
+ * Inicio de sesión por usuario
+ */
+// GET
+router.get('/ingreso',Auth.Iget);
+// POST
+router.post('/ingreso', (req, res, next) => {
+    passport.authenticate('local.signin', {
+        successRedirect: '/perfil',
+        failureRedirect: '/ingreso',
+        failureFlash: true
+    })(req, res, next);
+});
 
-router.get('/ingreso', isNotLoggedIn, Auth.Iget);
+/**
+ * Cambio de Contraseña
+ */
+// GET
+router.get('/cambio-pass', Auth.Rpget);
+// POST
+router.post('/cambio-pass', Auth.Rppost);
 
-router.post('/ingreso', isNotLoggedIn, Auth.Ipost);
-
-router.get('/salir', isLoggedIn, Auth.Out);
+/**
+ * Cerrar sessión
+ */
+// GET
+router.get('/salir', Auth.Out);
 
 module.exports = router;
