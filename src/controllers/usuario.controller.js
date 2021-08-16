@@ -5,7 +5,20 @@ const pool = require('../database');
  * GET + POST: perfil de usuario
  */
 const usuarioGet = async(req, res) => {
-    res.render('usuario/perfil');
+
+    const id = req.user.id;
+    const cliente = await pool.query("SELECT * FROM cliente WHERE id = ?",[id]);
+    
+    let idU = cliente.id_user;
+    let idI = cliente.id_info;
+    let idT = cliente.id_tamaño;
+
+    const Info = await pool.query("SELECT * FROM user_info WHERE id = ?",[idI]);
+    const Tamaño = await pool.query("SELECT * FROM tamaño WHERE id = ?",[idT]);
+
+
+    //res.status(200).json({tamaño:Tamaño[0], info:Info[0]});
+    res.render('usuario/perfil',{tamaño:Tamaño[0], info:Info[0]});
 }
 
 const usuarioPost = async(req, res) => {
@@ -22,7 +35,6 @@ const editarGet = async(req, res) => {
 }
 
 const editarPost = async(req, res) => {
-    
     /**
      * id del cliente
      */
@@ -37,12 +49,14 @@ const editarPost = async(req, res) => {
          */
         const idU = cliente.id_user;
         const idI = cliente.id_info;
-        let idT = cliente.id_tamaño
+        let idT = cliente.id_tamaño;
+
+        /*
         console.log(idI);
         console.log(idU);
         console.log(idT);
+        */
         
-
         /**
          * parametos de la persona
          */
@@ -86,18 +100,17 @@ const editarPost = async(req, res) => {
             /**
              * Actualizar medida
              */
-            if (idT != undefined || idT != null){
+            if (idT != undefined || idT != null) {
                 busto = parseFloat(busto).toFixed(2);
                 cintura = parseFloat(cintura).toFixed(2);
                 cadera = parseFloat(cadera).toFixed(2);
-                console.log('idT != null');
+                //console.log('idT != null');
                 const editT = {
                     busto,
                     cintura,
                     cadera
                 };
                 await pool.query("UPDATE tamaño SET ? WHERE id = ?",[editT,idT]);
-
             } else {
                 busto = parseFloat(busto).toFixed(2);
                 cintura = parseFloat(cintura).toFixed(2);
@@ -108,8 +121,6 @@ const editarPost = async(req, res) => {
                     cintura,
                     cadera
                 };
-
-                
 
                 const nuevoT = await pool.query("INSERT INTO tamaño SET ?",[editT]);
                 editT.id = nuevoT.insertId;
@@ -129,9 +140,7 @@ const editarPost = async(req, res) => {
             
         }else{
             //res.redirect('/perfil/editar/' + id);
-            
         }
-
         //res.status(200).json({message: 'todo ok'});
         //res.redirect('/perfil/');
     }else{

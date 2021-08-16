@@ -10,6 +10,8 @@ const { getMaxListeners } = require('../database');
 const Rget = async(req, res) => {
     res.render('auten/registro');
 }
+
+
 /**
  * GET: inicio de cesion
  */
@@ -17,6 +19,7 @@ const Rget = async(req, res) => {
 const Iget = async(req, res) => {
     res.render('auten/ingreso');
 }
+
 
 /**
  * GET + POST: recuperar contraseña
