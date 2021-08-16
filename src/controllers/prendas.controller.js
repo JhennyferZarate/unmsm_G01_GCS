@@ -70,8 +70,6 @@ module.exports = {
     P_vestidos,
     G_polos,
     P_polos,
-    G_ropa_interior,
-    P_ropa_interior,
     G_blusas,
     P_blusas,
     G_chompas,
