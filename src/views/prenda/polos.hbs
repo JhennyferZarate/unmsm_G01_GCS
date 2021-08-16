@@ -1,70 +1,75 @@
-<div class="container-fluid-px-0 text-center">
-    <div class="separator col-12 my-5 p-0">
+<div class="container-fluid-px-0 py-5">
+    <div class="separator col-12 mb-5 p-0">
         <span class="d-none d-xl-flex"></span>
-        <h2>Polos</h2>
+        <h2 class="text-center">Polos</h2>
         <span class="d-none d-xl-flex"></span>
     </div>
     <div class="row">
-        <div class="col-12 col-md-2">
-            <form action="" method="POST">
-                <ul>
-                    <li>Filtros</li>
-                    <li>Marca</li>
-                    <li>
-                        <div>
-                            <input type="checkbox" id="celestina">
-                            <label for="celestina">Celestina    15</label>
+        <div class="col-12 col-md-3">
+            <form method="POST" action="" class="filter">
+                <ul class="list-group mx-md-5">
+                    <li class="list-group-item"><h4><b>Filtros</b></h4></li>
+                    <li class="list-group-item"><h5><b>Marca</b></h5>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <label class="custom-control-label">Celestina</label>
                         </div>
-                        <div>
-                            <input type="checkbox" id="torsa">
-                            <label for="torsa">Torsa    10</label>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <label class="custom-control-label">Torsa</label>
                         </div>
-                        <div>
-                            <input type="checkbox" id="franperu">
-                            <label for="franperu">FranPeru    6</label>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <label class="custom-control-label">FranPeru</label>
                         </div>
-                        <div>
-                            <input type="checkbox" id="cerezas">
-                            <label for="cerezas">cerezas    8</label>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <label class="custom-control-label">Cerezas</label>
                         </div>
                     </li>
 
-                    <li>Tamaño</li>
-                    <li>
-                        <div>
-                            <input type="checkbox" id="s">
-                            <label for="s">S    15</label>
+                    <li class="list-group-item"><b>Tamaño</b>
+                        
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <label class="custom-control-label">S</label>
                         </div>
-                        <div>
-                            <input type="checkbox" id="m">
-                            <label for="m">M    10</label>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <label class="custom-control-label">M</label>
                         </div>
-                        <div>
-                            <input type="checkbox" id="l">
-                            <label for="l">L    6</label>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <label class="custom-control-label">L</label>
                         </div>
-                        <div>
-                            <input type="checkbox" id="xl">
-                            <label for="xl">XL    8</label>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <label class="custom-control-label">XL</label>
                         </div>
-                        <div>
-                            <input type="checkbox" id="xxl">
-                            <label for="xxl">XXL    8</label>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <label class="custom-control-label" >XXL</label>
                         </div>
                     </li>
-
-                    <li>Precio</li>
-                    <li>
-                        <div>
-                            <input type="checkbox" id="s">
-                            <label for="s">S    15</label>
+                    <li class="list-group-item"><b>Precio</b>
+                        <div class="custom-control custom-checkbox">
+                            <input type="range" class="custom-control-input" min="0" max="100">
+                            <label>Precio:</label>
                         </div>
+                    </li>
+                    <li class="list-group-item text-center">
+                        <button class="btn btn-principal" >Aplicar</button> 
                     </li>
                 </ul>
-                <button class="btn btn-principal">Aplicar</button>
             </form>
         </div>
-        <div class="col-12 col-md-10">
+        <div class="col-12 col-md-9">
             <div class="card card-shop mx-2 text-left">
                 <img class="mx-auto p-0" src="images/index/Ropa1.png" alt="">
                 <p class="card-shop-type m-0 pl-3">Chompas</p>
