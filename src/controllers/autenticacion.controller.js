@@ -6,7 +6,6 @@ const { getMaxListeners } = require('../database');
 /**
  * GET: registro de usuario
  */
-
 const Rget = async(req, res) => {
     res.render('auten/registro');
 }
@@ -15,7 +14,6 @@ const Rget = async(req, res) => {
 /**
  * GET: inicio de cesion
  */
-
 const Iget = async(req, res) => {
     res.render('auten/ingreso');
 }
@@ -25,7 +23,6 @@ const Iget = async(req, res) => {
  * GET + POST: recuperar contraseña
  * Rp : recuperar contraseña
  */
-
 const Rpget = async(req,res) =>{
     res.status(400).json({message: 'Get recuperar password'});
 }
@@ -76,13 +73,14 @@ const Cget = async(req, res) => {
 }
 
 const Cpost = async(req, res) => {
-    
+    const { id } = req.params;
+    const { pass } = req.body;
+    await pool.query("UPDATE user_cliente set pass = ? WHERE id = ?",[pass,id]);
 }
 
 /**
  * GET: Cerrar Sesion
  */
-
 const Out = async(req, res, next) => {
     req.logOut();
     res.redirect('/');
