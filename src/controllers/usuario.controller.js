@@ -6,23 +6,32 @@ const pool = require('../database');
  */
 const usuarioGet = async(req, res) => {
 
-    const id = req.user.id;
-    const cliente = await pool.query("SELECT * FROM cliente WHERE id = ?",[id]);
+    const { id } = req.user;
+    const Cliente = await pool.query("SELECT * FROM cliente WHERE id = ?",[id]);
     
-    let idU = cliente.id_user;
-    let idI = cliente.id_info;
-    let idT = cliente.id_tamaño;
+    let idU = Cliente[0].id_user;
+    let idI = Cliente[0].id_info;
+    let idT = Cliente[0].id_tamaño;
 
-    const Info = await pool.query("SELECT * FROM user_info WHERE id = ?",[idI]);
+    const Usuario = await pool.query("SELECT * FROM user_cliente WHERE id = ?",[idU]);
+    const Info = await pool.query("SELECT * FROM info_cliente WHERE id = ?",[idI]);
     const Tamaño = await pool.query("SELECT * FROM tamaño WHERE id = ?",[idT]);
 
+    if (Tamaño == undefined){
+        Tamaño[0] = {
+            ...Tamaño[0],
+            busto: '0',
+            cintura: '0',
+            cadera: '0'
+        }
+    }
 
     //res.status(200).json({tamaño:Tamaño[0], info:Info[0]});
-    res.render('usuario/perfil',{tamaño:Tamaño[0], info:Info[0]});
+    res.render('usuario/perfil',{cliente:Cliente[0],usuario:Usuario[0],tamaño:Tamaño[0], info:Info[0]});
 }
 
 const usuarioPost = async(req, res) => {
-    res.redirect('/perfil');
+    //res.redirect('/perfil');
 }
 
 /**
@@ -30,7 +39,6 @@ const usuarioPost = async(req, res) => {
  */
 const editarGet = async(req, res) => {
     const { id } = req.params;
-    
     res.render('usuario/editar_perfil');
 }
 

@@ -11,7 +11,7 @@ const Auth = require('../controllers/autenticacion.controller')
 router.get('/registro', Auth.Rget);
 // POST
 router.post('/registro', passport.authenticate('local.signup', {
-    successRedirect: '/perfil',
+    successRedirect: '/',
     failureRedirect: '/registro',
     failureFlash: true
 }));
@@ -24,7 +24,7 @@ router.get('/ingreso',Auth.Iget);
 // POST
 router.post('/ingreso', (req, res, next) => {
     passport.authenticate('local.signin', {
-        successRedirect: '/perfil',
+        successRedirect: '/',
         failureRedirect: '/ingreso',
         failureFlash: true
     })(req, res, next);
@@ -34,17 +34,17 @@ router.post('/ingreso', (req, res, next) => {
  * Cambio de Contraseña
  */
 // GET
-router.get('/cambio-pass', Auth.Rpget);
+router.get('/recuperar-pass', Auth.Rpget);
 // POST
-router.post('/cambio-pass', Auth.Rppost);
+router.post('/recuperar-pass', Auth.Rppost);
 
 /**
  * Recuperar Contraseña
  */
 // GET
-router.get('/recuperar-pass', Auth.Cget);
+router.get('/cambio-pass/:id', Auth.Cget);
 // POST
-router.post('/recuperar-pass', Auth.Cpost);
+router.post('/cambio-pass/:id', Auth.Cpost);
 
 /**
  * Cerrar sessión
