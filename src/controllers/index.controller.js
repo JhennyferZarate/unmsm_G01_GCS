@@ -21,5 +21,4 @@ const imagenes = async (req, res) => {
     res.render('index/imagenes');
 }
 
-
 module.exports = { index, nosotros, info, error, imagenes };
