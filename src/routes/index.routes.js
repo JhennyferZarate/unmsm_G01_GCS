@@ -9,4 +9,6 @@ router.get('/nosotros', Index.nosotros);
 
 router.get('/error', Index.error);
 
+router.get('/admin/imagenes', Index.imagenes);
+
 module.exports = router;

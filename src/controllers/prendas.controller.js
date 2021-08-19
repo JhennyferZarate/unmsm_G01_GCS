@@ -11,7 +11,7 @@ const P_vestidos = async(req, res) => {
 }
 
 const G_vestidos_und = async(req, res) => {
-    res.render('prenda/vestidos');
+    res.render('prenda/vestidos_und');
 }
 
 const P_vestidos_und = async(req, res) => {
@@ -29,7 +29,7 @@ const P_polos = async(req, res) => {
 }
 
 const G_polos_und = async(req, res) => {
-    res.render('prenda/polos');
+    res.render('prenda/polos_und');
 }
 
 const P_polos_und = async(req, res) => {
@@ -39,7 +39,7 @@ const P_polos_und = async(req, res) => {
 
 //CASACAS
 const G_casacas = async(req, res) => {
-    res.render('prenda/ropainterior');
+    res.render('prenda/casacas');
 }
 
 const P_casacas = async(req, res) => {
@@ -47,7 +47,7 @@ const P_casacas = async(req, res) => {
 }
 
 const G_casacas_und = async(req, res) => {
-    res.render('prenda/ropainterior');
+    res.render('prenda/casacas_und');
 }
 
 const P_casacas_und = async(req, res) => {
@@ -57,7 +57,7 @@ const P_casacas_und = async(req, res) => {
 
 //BLUSAS
 const G_blusas = async(req, res) => {
-    res.render('prenda/sastre');
+    res.render('prenda/blusas');
 }
 
 const P_blusas = async(req, res) => {
@@ -65,7 +65,7 @@ const P_blusas = async(req, res) => {
 }
 
 const G_blusas_und = async(req, res) => {
-    res.render('prenda/sastre');
+    res.render('prenda/blusas_und');
 }
 
 const P_blusas_und = async(req, res) => {
@@ -82,7 +82,7 @@ const P_chompas = async(req, res) => {
 }
 
 const G_chompas_und = async(req, res) => {
-    res.render('prenda/chompas');
+    res.render('prenda/chompas_und');
 }
 
 const P_chompas_und = async(req, res) => {
@@ -99,7 +99,7 @@ const P_pijama = async(req, res) => {
 }
 
 const G_pijama_und = async(req, res) => {
-    res.render('prenda/pijama');
+    res.render('prenda/pijama_und');
 }
 
 const P_pijama_und = async(req, res) => {
@@ -109,7 +109,7 @@ const P_pijama_und = async(req, res) => {
 
 //JEANS
 const G_jeans = async(req, res) => {
-    res.render('prenda/pantalones');
+    res.render('prenda/jeans');
 }
 
 const P_jeans = async(req, res) => {
@@ -117,7 +117,7 @@ const P_jeans = async(req, res) => {
 }
 
 const G_jeans_und = async(req, res) => {
-    res.render('prenda/pantalones');
+    res.render('prenda/jeans_und');
 }
 
 const P_jeans_und = async(req, res) => {
