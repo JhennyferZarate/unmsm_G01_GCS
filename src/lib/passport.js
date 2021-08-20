@@ -12,7 +12,7 @@ passport.use('local.signin', new LocalStrategy({
     const rows = await pool.query('SELECT * FROM user_cliente WHERE mailC = ?', [mailC]);
     if (rows.length > 0) {
         const user = rows[0];
-        const validPassword = await helpers.matchPassword(pass, user.pass)
+        const validPassword = await helpers.matchPassword(pass, user.pass);
         if (validPassword) {
             done(null, user);
         } else {
