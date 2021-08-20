@@ -4,8 +4,8 @@ module.exports = {
     database: {
         host: 'localhost',
         user: 'root',
-        password: 'FisiCalidad',
-        database: 'mydb'
+        password: '74881894quispe',
+        database: 'gcs_unmsm'
     }
 };
 
