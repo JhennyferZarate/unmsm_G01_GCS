@@ -17,8 +17,4 @@ const error = async(req, res) => {
     res.render('index/error');
 }
 
-const imagenes = async (req, res) => {
-    res.render('index/imagenes');
-}
-
-module.exports = { index, nosotros, info, error, imagenes };
+module.exports = { index, nosotros, info, error };
