@@ -9,7 +9,7 @@ router.get('/', Index.index);
 
 router.get('/nosotros', Index.nosotros);
 
-router.get('/error', Index.error);
+router.get('/filtros', Index.error);
 
 /**
  * Guardar en multer
