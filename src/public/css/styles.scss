@@ -7,17 +7,29 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     font-family: $font-principal;
 }
 
+.menu-lateral{
+    position: fixed;
+    min-height: 100vh;
+    width: 50%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: red;
+}
+
+a{
+    color: white;
+    &:hover{
+        color: white;
+        text-decoration: none;
+    }
+}
 
 .btn-principal{
     background: $background-principal;
     color:white;
     border-radius: 30px;
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
-    &:hover{
-        filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
-        transform: scale(1.2);
-        transition: transform 500ms;
-    }
 }
 
 .btn-pink{
@@ -212,15 +224,6 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     }
 }
 
-.filter{
-    input[type="checkbox"]{
-        border-radius: 50%;
-        &:checked{
-            background: $background-principal;
-        }
-    }
-}
-
 footer{
     background: $background-principal;
     img{
@@ -233,4 +236,14 @@ footer{
         font-style: italic;
         font-weight: bolder;
     }
+}
+
+#polo_venta{
+    width: 25em;
+    height: 25em;
+}
+
+#polo_foto{
+    width: 5em;
+    height: 5em;
 }
