@@ -29,6 +29,7 @@
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="sweetalert2.min.css">
     </head>
     <body>
 
@@ -46,5 +47,23 @@
         {{!--carousel javascript --}}
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="js/carousel-principal.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            $("#recuperar-pass").click(function(){
+                Swal.fire({
+                    icon: 'success',
+                    text: 'Se envió correctamente el correo de cambio de contraseña',
+                    confirmButtonText: 'LISTO'
+                })
+            });
+
+            $("#cambio-pass").click(function(){
+                Swal.fire({
+                    icon: 'success',
+                    text: 'Se hizo el cambio de contraseña correctamente.',
+                    confirmButtonText: 'LISTO'
+                })
+            });
+        </script>
     </body>
 </html>
