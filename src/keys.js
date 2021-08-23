@@ -4,7 +4,7 @@ module.exports = {
     database: {
         host: 'localhost',
         user: 'root',
-        password: '74881894quispe',
+        password: 'Patatas123',
         database: 'gcs_unmsm'
     }
 };
