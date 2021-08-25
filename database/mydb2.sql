@@ -55,7 +55,6 @@ CREATE TABLE `mydb`.`cliente` (
 CREATE TABLE `mydb`.`modelos` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `modelo` VARCHAR(255) NOT NULL,
-    `color` VARCHAR(255) NOT NULL,
     `ruta_imagen` LONGBLOB NOT NULL,
     PRIMARY KEY (`id`)
 );
