@@ -1,9 +1,21 @@
 const express = require('express');
 const pool = require('../database');
+const fs = require('fs');
+const path = require('path');
 
 //VESTIDOS
 const G_vestidos = async(req, res) => {
-    res.render('prenda/vestidos');
+    const imagenes = fs.readdirSync(path.join(__dirname, '../public/images/prendas/'));
+    const Imagenes = new Array();
+
+    for(i=0;i<imagenes.length;i++){
+        var aux = {
+            "name": imagenes[i]
+        }
+        Imagenes.push(aux);
+    }
+
+    res.render('prenda/vestidos',{Imagenes});
 }
 
 const P_vestidos = async(req, res) => {
@@ -125,6 +137,24 @@ const P_jeans_und = async(req, res) => {
 }
 
 
+//FALDAS
+const G_faldas = async(req, res) => {
+    res.render('prenda/faldas');
+}
+
+const P_faldas = async(req, res) => {
+
+}
+
+const G_faldas_und = async(req, res) => {
+    res.render('prenda/faldas_und');
+}
+
+const P_faldas_und = async(req, res) => {
+
+}
+
+
 module.exports = {
     G_casacas,
     P_casacas,
@@ -146,12 +176,12 @@ module.exports = {
     P_chompas,
     G_chompas_und,
     P_chompas_und,
-    G_pijama,
-    P_pijama,
-    G_pijama_und,
-    P_pijama_und,
     G_jeans,
     P_jeans,
     G_jeans_und,
-    P_jeans_und
+    P_jeans_und,
+    G_faldas,
+    P_faldas,
+    G_faldas_und,
+    P_faldas_und
 };
