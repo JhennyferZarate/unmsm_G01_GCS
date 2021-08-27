@@ -52,11 +52,24 @@ CREATE TABLE `mydb`.`cliente` (
         ON DELETE CASCADE
         ON UPDATE CASCADE);
 
-CREATE TABLE `mydb`.`modelos` (
+CREATE TABLE `mydb`.`colores` (
     `id` INT NOT NULL AUTO_INCREMENT,
-    `modelo` VARCHAR(255) NOT NULL,
-    `ruta_imagen` LONGBLOB NOT NULL,
+    `color` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `mydb`.`modelos` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`modelo` VARCHAR(45) NOT NULL,
+	`id_colores` INT NOT NULL,
+	`ruta_imagen` LONGBLOB NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `modelos_colores_idx` (`id_colores` ASC) VISIBLE,
+	CONSTRAINT `modelos_colores`
+		FOREIGN KEY (`id_colores`)
+		REFERENCES `mydb`.`colores` (`id`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
 );
 
 CREATE TABLE `mydb`.`comentarios` (
@@ -73,34 +86,71 @@ CREATE TABLE `mydb`.`comentarios` (
         ON UPDATE CASCADE
 );
 
-CREATE TABLE `mydb`.`prenda` (
+CREATE TABLE `mydb`.`descripciones` (
     `id` INT NOT NULL AUTO_INCREMENT,
-    `precio` DECIMAL(10,2) NOT NULL DEFAULT 0,
-    `cantidad` INT NOT NULL DEFAULT 0,
-    `descripcion` VARCHAR(255) NULL,
-    `id_tamaño` INT NOT NULL,
-    `id_modelo` INT NOT NULL,
-    `id_comentario` INT NULL,
-    PRIMARY KEY (`id`),
-    INDEX `fk_prenda_tamaño_idx` (`id_tamaño` ASC) ,
-    INDEX `fk_prenda_modelo_idx` (`id_modelo` ASC) ,
-    INDEX `fk_prenda_comentario_idx` (`id_comentario` ASC) ,
-    CONSTRAINT `fk_prenda_tamaño`
-        FOREIGN KEY (`id_tamaño`)
-        REFERENCES `gcs_unmsm`.`tamaño` (`id`)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    CONSTRAINT `fk_prenda_modelo`
-        FOREIGN KEY (`id_modelo`)
-        REFERENCES `gcs_unmsm`.`modelos` (`id`)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    CONSTRAINT `fk_prenda_comentario`
-        FOREIGN KEY (`id_comentario`)
-        REFERENCES `gcs_unmsm`.`comentarios` (`id`)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    `descripcion` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`)
 );
+
+CREATE TABLE `mydb`.`estilos` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `estilo` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `mydb`.`precios` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `precio` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `mydb`.`prenda` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`cantidad` INT NOT NULL,
+	`id_estilos` INT NOT NULL,
+	`id_precios` INT NOT NULL,
+	`id_descripciones` INT NOT NULL,
+	`id_tamaños` INT NOT NULL,
+	`id_modelos` INT NOT NULL,
+	`id_comentarios` INT NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `prenda_precio_idx` (`id_precios` ASC) VISIBLE,
+	INDEX `prenda_estilo_idx` (`id_estilos` ASC) VISIBLE,
+	INDEX `prenda_descripcion_idx` (`id_descripciones` ASC) VISIBLE,
+	INDEX `prenda_tamaño_idx` (`id_tamaños` ASC) VISIBLE,
+	INDEX `prenda_modelo_idx` (`id_modelos` ASC) VISIBLE,
+	INDEX `prenda_comentario_idx` (`id_comentarios` ASC) VISIBLE,
+	CONSTRAINT `prenda_precio`
+		FOREIGN KEY (`id_precios`)
+		REFERENCES `mydb`.`precios` (`id`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT `prenda_estilo`
+		FOREIGN KEY (`id_estilos`)
+		REFERENCES `mydb`.`estilos` (`id`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT `prenda_descripcion`
+		FOREIGN KEY (`id_descripciones`)
+		REFERENCES `mydb`.`descripciones` (`id`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT `prenda_tamaño`
+		FOREIGN KEY (`id_tamaños`)
+		REFERENCES `mydb`.`tamaño` (`id`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT `prenda_modelo`
+		FOREIGN KEY (`id_modelos`)
+		REFERENCES `mydb`.`modelos` (`id`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT `prenda_comentario`
+		FOREIGN KEY (`id_comentarios`)
+		REFERENCES `mydb`.`comentarios` (`id`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION)
+;
 
 CREATE TABLE `mydb`.`carrito` (
     `id` INT NOT NULL AUTO_INCREMENT,

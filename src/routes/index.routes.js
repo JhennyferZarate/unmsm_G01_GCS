@@ -3,6 +3,7 @@ const router = express.Router();
 const pool = require('../database');
 const Index = require('../controllers/index.controller');
 const multer = require('multer');
+const path = require('path'); 
 const fs = require('fs');
 
 router.get('/', Index.index);
@@ -14,31 +15,36 @@ router.get('/filtros', Index.error);
 /**
  * Guardar en multer
  */
-// const diskstorage = multer.diskStorage({
-//     destination: path.join(__dirname, '../public/images/prendas'),
-//     filename: (req, file, cb) => {
-//         cb(null, Date.now() + '-monkeywit-' + file.originalname)
-//     }
-// });
+const diskstorage = multer.diskStorage({
+    destination: path.join(__dirname, '../public/images/prendas'),
+    filename: (req, file, cb) => {
+        cb(null,file.originalname);
+    }
+});
 
-// const fileUpload = multer({
-//     storage: diskstorage
-// }).single('image')
+const fileUpload = multer({
+    storage: diskstorage
+}).single('image') 
 
-// router.get('/admin/imagenes', fileUpload , async(req,res) => {
-//     const type = req.file.mimetype
-//     const name = req.file.originalname
-//     const data = fs.readFileSync(path.join(__dirname, '../public/images/prendas'+ req.file.filename))
+/**
+ * Get + Post: Imagenes
+ */
+router.get('/admin/imagenes', async(req,res) =>{
+    res.render('index/imagenes');
+});
 
-//     const Imagen = {
-//         modelo: 'name',
-//         color: 'rojo',
-//         ruta_imagen: data
-//     };
+router.post('/admin/imagenes', fileUpload , async(req,res,next) => {
+    const name = req.file.originalname
+    const data = fs.readFileSync(path.join(__dirname, '../public/images/prendas/'+ req.file.filename))
     
-//     await pool.query("INSET INTO modelos SET ?",[Imagen]);
-// });
-
-//router.post('/admin/imagenes', Index.Pimagenes);
+    const Imagen = {
+        modelo: name,
+        ruta_imagen: data
+    };
+    
+    await pool.query("INSERT INTO modelos SET ?",[Imagen]);
+    
+    res.redirect('/admin/imagenes');
+});
 
 module.exports = router;

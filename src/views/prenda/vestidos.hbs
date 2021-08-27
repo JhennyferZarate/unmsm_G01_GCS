@@ -71,14 +71,16 @@
         </div>
         <div class="col-12 col-md-9 d-flex">
             <div class="row">
-                <div class="col">
-                    <div class="card card-shop mx-2 text-left">
-                        <img class="mx-auto p-0" src="images/index/Ropa1.png" alt="">
-                        <p class="card-shop-type m-0 pl-3">Chompas</p>
-                        <p class="card-shop-name m-0 pl-3">Blue</p>
-                        <p class="card-shop-price m-0 pl-3">S/. 40</p>
+                {{#each Imagenes}}
+                    <div class="col-md-4 d-flex">
+                        <div class="card card-shop mx-2 text-left">
+                            <img class="mx-auto p-0" href="/vestidos/{{id}}" src="images/prendas/{{name}}" alt="">
+                            <p class="card-shop-type m-0 pl-3">Chompas</p>
+                            <p class="card-shop-name m-0 pl-3">Blue</p>
+                            <p class="card-shop-price m-0 pl-3">S/. 40</p>
+                        </div>
                     </div>
-                </div>
+                {{/each}}
                 <div class="col-12">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
