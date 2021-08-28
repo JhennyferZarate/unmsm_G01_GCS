@@ -7,6 +7,9 @@ const path = require('path');
 const G_vestidos = async(req, res) => {
 
     const prenda = "descripcion = 'vestido' ";
+    const Panel = [{
+        descripcion: "Vestidos"
+    }];
     //Este codigo llama a las prendas
     const Modelos = await pool.query(
     `
@@ -33,7 +36,7 @@ const G_vestidos = async(req, res) => {
             ${prenda}
     `);
 
-    res.render('prenda/vestidos',{Modelos});
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_vestidos = async(req, res) => {
@@ -41,7 +44,7 @@ const P_vestidos = async(req, res) => {
 }
 
 const G_vestidos_und = async(req, res) => {
-    res.render('prenda/vestidos_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_vestidos_und = async(req, res) => {
@@ -53,6 +56,9 @@ const P_vestidos_und = async(req, res) => {
 const G_polos = async(req, res) => {
 
     const prenda = "descripcion = 'polo' ";
+    const Panel = [{
+        descripcion: "Polos"
+    }];
     //Este codigo llama a las prendas
     const Modelos = await pool.query(
     `
@@ -78,7 +84,7 @@ const G_polos = async(req, res) => {
         WHERE
             ${prenda}
     `);
-    res.render('prenda/polos',{Modelos});
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_polos = async(req, res) => {
@@ -86,7 +92,7 @@ const P_polos = async(req, res) => {
 }
 
 const G_polos_und = async(req, res) => {
-    res.render('prenda/polos_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_polos_und = async(req, res) => {
@@ -97,6 +103,9 @@ const P_polos_und = async(req, res) => {
 //CASACAS
 const G_casacas = async(req, res) => {
     const prenda = "descripcion = 'casaca' ";
+    const Panel = [{
+        descripcion: "Casacas"
+    }];
     //Este codigo llama a las prendas
     const Modelos = await pool.query(
     `
@@ -122,7 +131,7 @@ const G_casacas = async(req, res) => {
         WHERE
             ${prenda}
     `);
-    res.render('prenda/casacas',{Modelos});
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_casacas = async(req, res) => {
@@ -130,7 +139,7 @@ const P_casacas = async(req, res) => {
 }
 
 const G_casacas_und = async(req, res) => {
-    res.render('prenda/casacas_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_casacas_und = async(req, res) => {
@@ -141,6 +150,9 @@ const P_casacas_und = async(req, res) => {
 //BLUSAS
 const G_blusas = async(req, res) => {
     const prenda = "descripcion = 'blusa' ";
+    const Panel = [{
+        descripcion: "Blusas"
+    }];
     //Este codigo llama a las prendas
     const Modelos = await pool.query(
     `
@@ -166,7 +178,7 @@ const G_blusas = async(req, res) => {
         WHERE
             ${prenda}
     `);
-    res.render('prenda/blusas',{Modelos});
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_blusas = async(req, res) => {
@@ -174,7 +186,7 @@ const P_blusas = async(req, res) => {
 }
 
 const G_blusas_und = async(req, res) => {
-    res.render('prenda/blusas_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_blusas_und = async(req, res) => {
@@ -185,6 +197,9 @@ const P_blusas_und = async(req, res) => {
 //CHOMPAS
 const G_chompas = async(req, res) => {
     const prenda = "descripcion = 'chompa' ";
+    const Panel = [{
+        descripcion: "Chompas"
+    }];
     //Este codigo llama a las prendas
     const Modelos = await pool.query(
     `
@@ -210,14 +225,14 @@ const G_chompas = async(req, res) => {
         WHERE
             ${prenda}
     `);
-    res.render('prenda/chompas',{Modelos});
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_chompas = async(req, res) => {
 }
 
 const G_chompas_und = async(req, res) => {
-    res.render('prenda/chompas_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_chompas_und = async(req, res) => {
@@ -226,6 +241,9 @@ const P_chompas_und = async(req, res) => {
 //JEANS
 const G_jeans = async(req, res) => {
     const prenda = "descripcion = 'jean' ";
+    const Panel = [{
+        descripcion: "Jeans"
+    }];
     //Este codigo llama a las prendas
     const Modelos = await pool.query(
     `
@@ -251,7 +269,7 @@ const G_jeans = async(req, res) => {
         WHERE
             ${prenda}
     `);
-    res.render('prenda/jeans',{Modelos});
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_jeans = async(req, res) => {
@@ -259,7 +277,7 @@ const P_jeans = async(req, res) => {
 }
 
 const G_jeans_und = async(req, res) => {
-    res.render('prenda/jeans_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_jeans_und = async(req, res) => {
@@ -270,6 +288,9 @@ const P_jeans_und = async(req, res) => {
 //FALDAS
 const G_faldas = async(req, res) => {
     const prenda = "descripcion = 'falda' ";
+    const Panel = [{
+        descripcion: "Faldas"
+    }];
     //Este codigo llama a las prendas
     const Modelos = await pool.query(
     `
@@ -295,7 +316,7 @@ const G_faldas = async(req, res) => {
         WHERE
             ${prenda}
     `);
-    res.render('prenda/faldas',{Modelos});
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_faldas = async(req, res) => {
@@ -303,13 +324,12 @@ const P_faldas = async(req, res) => {
 }
 
 const G_faldas_und = async(req, res) => {
-    res.render('prenda/faldas_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_faldas_und = async(req, res) => {
 
 }
-
 
 module.exports = {
     G_casacas,
