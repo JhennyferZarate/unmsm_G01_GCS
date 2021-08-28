@@ -58,6 +58,21 @@ CREATE TABLE `mydb`.`colores` (
     PRIMARY KEY (`id`)
 );
 
+-- INSERT INTO colores (id,color) VALUES 
+-- (1,'blanco'),
+-- (2,'celeste'),
+-- (3,'guinda'),
+-- (4,'lila'),
+-- (5,'marron'),
+-- (6,'morado'),
+-- (7,'negro'),
+-- (8,'rosado'),
+-- (9,'azul'),
+-- (10,'amarillo'),
+-- (11,'crema'),
+-- (12,'naranja'),
+-- (13,'gris');
+
 CREATE TABLE `mydb`.`modelos` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`modelo` VARCHAR(45) NOT NULL,
@@ -92,17 +107,41 @@ CREATE TABLE `mydb`.`descripciones` (
     PRIMARY KEY (`id`)
 );
 
+-- INSERT INTO descripciones (id,descripcion) VALUES 
+-- (1,'nieve'),
+-- (2,'blue'),
+-- (3,'cuadros'),
+-- (4,'otroño'),
+-- (5,'peluche'),
+-- (6,'clasico'),
+-- (7,'soft'),
+-- (8,'falda jean'),
+-- (9,'falda con botones'),
+-- (10,'minifalda con cierre'),
+-- (11,'crema'),
+-- (12,'naranja'),
+-- (13,'gris');
+
 CREATE TABLE `mydb`.`estilos` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `estilo` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id`)
 );
 
+-- INSERT INTO roles (id,roles) VALUES 
+-- (1,'persona'),
+-- (2,'empresa');
+
 CREATE TABLE `mydb`.`precios` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `precio` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id`)
 );
+
+-- INSERT INTO roles (id,roles) VALUES 
+-- (1,'persona'),
+-- (2,'empresa');
+
 
 CREATE TABLE `mydb`.`prenda` (
 	`id` INT NOT NULL AUTO_INCREMENT,
@@ -112,7 +151,7 @@ CREATE TABLE `mydb`.`prenda` (
 	`id_descripciones` INT NOT NULL,
 	`id_tamaños` INT NOT NULL,
 	`id_modelos` INT NOT NULL,
-	`id_comentarios` INT NOT NULL,
+	`id_comentarios` INT,
 	PRIMARY KEY (`id`),
 	INDEX `prenda_precio_idx` (`id_precios` ASC) VISIBLE,
 	INDEX `prenda_estilo_idx` (`id_estilos` ASC) VISIBLE,

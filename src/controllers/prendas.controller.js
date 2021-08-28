@@ -5,17 +5,38 @@ const path = require('path');
 
 //VESTIDOS
 const G_vestidos = async(req, res) => {
-    const imagenes = fs.readdirSync(path.join(__dirname, '../public/images/prendas/'));
-    const Imagenes = new Array();
 
-    for(i=0;i<imagenes.length;i++){
-        var aux = {
-            "name": imagenes[i]
-        }
-        Imagenes.push(aux);
-    }
+    const prenda = "descripcion = 'vestido' ";
+    const Panel = [{
+        descripcion: "Vestidos"
+    }];
+    //Este codigo llama a las prendas
+    const Modelos = await pool.query(
+    `
+        SELECT
+            prenda.id,
+            estilos.estilo,
+            precios.precio,
+            descripciones.descripcion,
+            modelos.modelo,
+            colores.color
+        FROM
+            prenda
+                INNER JOIN estilos
+                    ON prenda.id_estilos = estilos.id
+                INNER JOIN precios
+                    ON prenda.id_precios = precios.id
+                INNER JOIN descripciones
+                    ON prenda.id_descripciones = descripciones.id
+                INNER JOIN modelos
+                    ON prenda.id_modelos = modelos.id
+                INNER JOIN colores
+                    ON modelos.id_colores = colores.id
+        WHERE
+            ${prenda}
+    `);
 
-    res.render('prenda/vestidos',{Imagenes});
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_vestidos = async(req, res) => {
@@ -23,7 +44,7 @@ const P_vestidos = async(req, res) => {
 }
 
 const G_vestidos_und = async(req, res) => {
-    res.render('prenda/vestidos_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_vestidos_und = async(req, res) => {
@@ -33,7 +54,37 @@ const P_vestidos_und = async(req, res) => {
 
 //POLOS
 const G_polos = async(req, res) => {
-    res.render('prenda/polos');
+
+    const prenda = "descripcion = 'polo' ";
+    const Panel = [{
+        descripcion: "Polos"
+    }];
+    //Este codigo llama a las prendas
+    const Modelos = await pool.query(
+    `
+        SELECT
+            prenda.id,
+            estilos.estilo,
+            precios.precio,
+            descripciones.descripcion,
+            modelos.modelo,
+            colores.color
+        FROM
+            prenda
+                INNER JOIN estilos
+                    ON prenda.id_estilos = estilos.id
+                INNER JOIN precios
+                    ON prenda.id_precios = precios.id
+                INNER JOIN descripciones
+                    ON prenda.id_descripciones = descripciones.id
+                INNER JOIN modelos
+                    ON prenda.id_modelos = modelos.id
+                INNER JOIN colores
+                    ON modelos.id_colores = colores.id
+        WHERE
+            ${prenda}
+    `);
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_polos = async(req, res) => {
@@ -41,7 +92,7 @@ const P_polos = async(req, res) => {
 }
 
 const G_polos_und = async(req, res) => {
-    res.render('prenda/polos_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_polos_und = async(req, res) => {
@@ -51,7 +102,36 @@ const P_polos_und = async(req, res) => {
 
 //CASACAS
 const G_casacas = async(req, res) => {
-    res.render('prenda/casacas');
+    const prenda = "descripcion = 'casaca' ";
+    const Panel = [{
+        descripcion: "Casacas"
+    }];
+    //Este codigo llama a las prendas
+    const Modelos = await pool.query(
+    `
+        SELECT
+            prenda.id,
+            estilos.estilo,
+            precios.precio,
+            descripciones.descripcion,
+            modelos.modelo,
+            colores.color
+        FROM
+            prenda
+                INNER JOIN estilos
+                    ON prenda.id_estilos = estilos.id
+                INNER JOIN precios
+                    ON prenda.id_precios = precios.id
+                INNER JOIN descripciones
+                    ON prenda.id_descripciones = descripciones.id
+                INNER JOIN modelos
+                    ON prenda.id_modelos = modelos.id
+                INNER JOIN colores
+                    ON modelos.id_colores = colores.id
+        WHERE
+            ${prenda}
+    `);
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_casacas = async(req, res) => {
@@ -59,7 +139,7 @@ const P_casacas = async(req, res) => {
 }
 
 const G_casacas_und = async(req, res) => {
-    res.render('prenda/casacas_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_casacas_und = async(req, res) => {
@@ -69,7 +149,36 @@ const P_casacas_und = async(req, res) => {
 
 //BLUSAS
 const G_blusas = async(req, res) => {
-    res.render('prenda/blusas');
+    const prenda = "descripcion = 'blusa' ";
+    const Panel = [{
+        descripcion: "Blusas"
+    }];
+    //Este codigo llama a las prendas
+    const Modelos = await pool.query(
+    `
+        SELECT
+            prenda.id,
+            estilos.estilo,
+            precios.precio,
+            descripciones.descripcion,
+            modelos.modelo,
+            colores.color
+        FROM
+            prenda
+                INNER JOIN estilos
+                    ON prenda.id_estilos = estilos.id
+                INNER JOIN precios
+                    ON prenda.id_precios = precios.id
+                INNER JOIN descripciones
+                    ON prenda.id_descripciones = descripciones.id
+                INNER JOIN modelos
+                    ON prenda.id_modelos = modelos.id
+                INNER JOIN colores
+                    ON modelos.id_colores = colores.id
+        WHERE
+            ${prenda}
+    `);
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_blusas = async(req, res) => {
@@ -77,7 +186,7 @@ const P_blusas = async(req, res) => {
 }
 
 const G_blusas_und = async(req, res) => {
-    res.render('prenda/blusas_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_blusas_und = async(req, res) => {
@@ -87,41 +196,80 @@ const P_blusas_und = async(req, res) => {
 
 //CHOMPAS
 const G_chompas = async(req, res) => {
-    res.render('prenda/chompas');
+    const prenda = "descripcion = 'chompa' ";
+    const Panel = [{
+        descripcion: "Chompas"
+    }];
+    //Este codigo llama a las prendas
+    const Modelos = await pool.query(
+    `
+        SELECT
+            prenda.id,
+            estilos.estilo,
+            precios.precio,
+            descripciones.descripcion,
+            modelos.modelo,
+            colores.color
+        FROM
+            prenda
+                INNER JOIN estilos
+                    ON prenda.id_estilos = estilos.id
+                INNER JOIN precios
+                    ON prenda.id_precios = precios.id
+                INNER JOIN descripciones
+                    ON prenda.id_descripciones = descripciones.id
+                INNER JOIN modelos
+                    ON prenda.id_modelos = modelos.id
+                INNER JOIN colores
+                    ON modelos.id_colores = colores.id
+        WHERE
+            ${prenda}
+    `);
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_chompas = async(req, res) => {
 }
 
 const G_chompas_und = async(req, res) => {
-    res.render('prenda/chompas_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_chompas_und = async(req, res) => {
 }
 
-
-//PIJAMA
-const G_pijama = async(req, res) => {
-    res.render('prenda/pijama');
-}
-
-const P_pijama = async(req, res) => {
-
-}
-
-const G_pijama_und = async(req, res) => {
-    res.render('prenda/pijama_und');
-}
-
-const P_pijama_und = async(req, res) => {
-
-}
-
-
 //JEANS
 const G_jeans = async(req, res) => {
-    res.render('prenda/jeans');
+    const prenda = "descripcion = 'jean' ";
+    const Panel = [{
+        descripcion: "Jeans"
+    }];
+    //Este codigo llama a las prendas
+    const Modelos = await pool.query(
+    `
+        SELECT
+            prenda.id,
+            estilos.estilo,
+            precios.precio,
+            descripciones.descripcion,
+            modelos.modelo,
+            colores.color
+        FROM
+            prenda
+                INNER JOIN estilos
+                    ON prenda.id_estilos = estilos.id
+                INNER JOIN precios
+                    ON prenda.id_precios = precios.id
+                INNER JOIN descripciones
+                    ON prenda.id_descripciones = descripciones.id
+                INNER JOIN modelos
+                    ON prenda.id_modelos = modelos.id
+                INNER JOIN colores
+                    ON modelos.id_colores = colores.id
+        WHERE
+            ${prenda}
+    `);
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_jeans = async(req, res) => {
@@ -129,7 +277,7 @@ const P_jeans = async(req, res) => {
 }
 
 const G_jeans_und = async(req, res) => {
-    res.render('prenda/jeans_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_jeans_und = async(req, res) => {
@@ -139,7 +287,36 @@ const P_jeans_und = async(req, res) => {
 
 //FALDAS
 const G_faldas = async(req, res) => {
-    res.render('prenda/faldas');
+    const prenda = "descripcion = 'falda' ";
+    const Panel = [{
+        descripcion: "Faldas"
+    }];
+    //Este codigo llama a las prendas
+    const Modelos = await pool.query(
+    `
+        SELECT
+            prenda.id,
+            estilos.estilo,
+            precios.precio,
+            descripciones.descripcion,
+            modelos.modelo,
+            colores.color
+        FROM
+            prenda
+                INNER JOIN estilos
+                    ON prenda.id_estilos = estilos.id
+                INNER JOIN precios
+                    ON prenda.id_precios = precios.id
+                INNER JOIN descripciones
+                    ON prenda.id_descripciones = descripciones.id
+                INNER JOIN modelos
+                    ON prenda.id_modelos = modelos.id
+                INNER JOIN colores
+                    ON modelos.id_colores = colores.id
+        WHERE
+            ${prenda}
+    `);
+    res.render('prenda/prenda',{Modelos,panel: Panel[0]});
 }
 
 const P_faldas = async(req, res) => {
@@ -147,13 +324,12 @@ const P_faldas = async(req, res) => {
 }
 
 const G_faldas_und = async(req, res) => {
-    res.render('prenda/faldas_und');
+    res.render('prenda/prenda_und');
 }
 
 const P_faldas_und = async(req, res) => {
 
 }
-
 
 module.exports = {
     G_casacas,
