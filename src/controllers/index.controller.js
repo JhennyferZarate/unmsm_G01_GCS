@@ -6,7 +6,7 @@ const { deepStrictEqual } = require('assert');
 const { formatWithOptions } = require('util');
 
 const index = async(req, res) => {
-    
+    /*
     //Este codigo extrae Los atributos de la DB
     const modelos = await pool.query("SELECT * FROM modelos");
 
@@ -15,7 +15,7 @@ const index = async(req, res) => {
     for(i=0;i<modelos.length;i++){
         fs.writeFileSync(path.join(__dirname,'../public/images/dbimagenes/' + modelos[i].id + '-' + modelos[i].modelo + '.png'),modelos[i].ruta_imagen)
     }
-
+    
     //Este codigo llama a las imagenes
     const imagenes = fs.readdirSync(path.join(__dirname, '../public/images/prendas/'));
 
@@ -24,7 +24,6 @@ const index = async(req, res) => {
     //Este codigo agruga las imagenes en objetos
     for(i=0;i<imagenes.length;i++){
         var aux = {
-            "id": modelos[0].id,
             "name": imagenes[i]
             
         }
@@ -33,7 +32,8 @@ const index = async(req, res) => {
     
     console.log(Imagenes);
     res.render('index/index',{Imagenes});
-    //res.render('index/index');
+    */
+    res.render('index/index');
 }
 
 const nosotros = async(req, res) => {

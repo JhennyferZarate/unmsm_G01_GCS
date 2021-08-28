@@ -151,7 +151,7 @@ CREATE TABLE `mydb`.`prenda` (
 	`id_descripciones` INT NOT NULL,
 	`id_tamaños` INT NOT NULL,
 	`id_modelos` INT NOT NULL,
-	`id_comentarios` INT NOT NULL,
+	`id_comentarios` INT,
 	PRIMARY KEY (`id`),
 	INDEX `prenda_precio_idx` (`id_precios` ASC) VISIBLE,
 	INDEX `prenda_estilo_idx` (`id_estilos` ASC) VISIBLE,
