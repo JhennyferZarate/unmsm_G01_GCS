@@ -2,10 +2,10 @@
 
 module.exports = {
     database: {
-        host: 'localhost',
-        user: 'root',
-        password: 'FisiCalidad',
-        database: 'mydb'
+        host: 'us-cdbr-east-04.cleardb.com',
+        user: 'bacd3089767c91',
+        password: '778dacd5',
+        database: 'heroku_7acd253dba63c7f'
     }
 };
 
