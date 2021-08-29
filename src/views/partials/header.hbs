@@ -4,37 +4,87 @@
 	<div class="collapse menu-lateral" id="sidebarCollapse">
 		<div class="card card-body text-light px-5">
 			<div class="py-3">
-				<img class="p-2" src="images/lateral-menu/icon_volver.png" alt="">
-				<p class="d-inline-block"><a href="">Volver</a></p>
+				<a type="button" data-toggle="collapse" data-target="#sidebarCollapse">
+					<img class="p-2" src="images/lateral-menu/icon_volver.png" alt="">
+					<p class="d-inline-block">Volver</p>
+				</a>
 			</div>
 			<div class="py-3">
-				<img class="p-2" src="images/lateral-menu/Vector 6.png" alt="">
-				<p class="d-inline-block"><a href="/polos">Polos</a></p>
+				<a href="/polos">
+					<img class="p-2" src="images/lateral-menu/Vector 6.png" alt="">
+					<p class="d-inline-block">Polos</p>
+				</a>
 			</div>
 			<div class="py-3">
-				<img class="p-2" src="images/lateral-menu/Vector 7.png" alt="">
-				<p class="d-inline-block"><a href="/faldas">Faltas</a></p>
+				<a href="/faldas">
+					<img class="p-2" src="images/lateral-menu/Vector 7.png" alt="">
+					<p class="d-inline-block">Faltas</p>
+				</a>
 			</div>
 			<div class="py-3">
-				<img class="p-2" src="images/lateral-menu/Vector 8.png" alt="">
-				<p class="d-inline-block"><a href="/jeans">Jeans</a></p>
+				<a href="/jeans">
+					<img class="p-2" src="images/lateral-menu/Vector 8.png" alt="">
+					<p class="d-inline-block">Jeans</p>
+				</a>
 			</div>
 			<div class="py-3">
-				<img class="p-2" src="images/lateral-menu/Vector 9.png" alt="">
-				<p class="d-inline-block"><a href="/chompas">Chompas</a></p>
+				<a href="/chompas">
+					<img class="p-2" src="images/lateral-menu/Vector 9.png" alt="">
+					<p class="d-inline-block">Chompas</p>
+				</a>
 			</div>
 			<div class="py-3">
-				<img class="p-2" src="images/lateral-menu/Vector 10.png" alt="">
-				<p class="d-inline-block"><a href="/casacas">Casacas</a></p>
+				<a href="/casacas">
+					<img class="p-2" src="images/lateral-menu/Vector 10.png" alt="">
+					<p class="d-inline-block">Casacas</p>
+				</a>
 			</div>
 			<div class="py-3">
-				<img class="p-2" src="images/lateral-menu/Vector 6.png" alt="">
-				<p class="d-inline-block"><a href="/vestidos">Vestidos</a></p>
+				<a href="/vestidos">
+					<img class="p-2" src="images/lateral-menu/Vector 6.png" alt="">
+					<p class="d-inline-block">Vestidos</p>
+				</a>
 			</div>
 			<div class="py-3">
-				<img class="p-2" src="images/lateral-menu/Vector 6.png" alt="">
-				<p class="d-inline-block"><a href="/blusas">Blusas</a></p>
+				<a href="/blusas">
+					<img class="p-2" src="images/lateral-menu/Vector 6.png" alt="">
+					<p class="d-inline-block">Blusas</p>
+				</a>
 			</div>
+		</div>
+	</div>
+
+	<div class="collapse carrito" id="carrito">
+		<div class="card card-body text-light px-5">
+			<div class="py-3">
+				<a type="button" data-toggle="collapse" data-target="#carrito">
+					<img src="images/navbar/icon_volver.png" alt="">
+				</a>
+				<h5 class="text-dark d-inline">Carrito de compras</h5>
+			</div>
+			
+			<div class="item">
+				<div class="row">
+					<div class="col-6 align-self-center">
+						<img src="images/index/ropa4.png" alt="" height="150">
+					</div>
+					<div class="col-6 text-dark align-self-center">
+						<p class="m-0">BLUE</p>
+						<div class="d-inline-flex">
+							<div class="mx-1" style="background-color: red; width: 30px; height: 30px; border-radius: 50%; border: 1px solid black"></div>
+							<div class="text-center mx-1" style="width: 30px; height: 30px; border-radius: 50%; border: 1px solid black;">S</div>
+						</div>
+						<div class="d-inline-flex">
+							<button class="btn btn-principal">S/. 40.00</button>
+							<button class="btn btn-secondary">Quitar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center m-3">
+			<button class="btn btn-light m-2">TOTAL: S/. 40.00</button>
+			<button class="btn btn-dark m-2">Comprar</button>
 		</div>
 	</div>
 
@@ -80,7 +130,7 @@
 				</li>
 			{{/if}}
 			<li class="nav-item">
-				<a class="nav-link" href="#">
+				<a class="nav-link" type="button" data-toggle="collapse" data-target="#carrito">
 					<img src="images/navbar/navbar_car.png" alt="Carrito de compras">
 					Carrito de Compras
 				</a>
