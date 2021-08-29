@@ -29,9 +29,16 @@ $background-principal: linear-gradient(90deg, #E5C1DF 0%, #ADDCF2 100%);
     }
 }
 
-.filter{
-    position: absolute; 
-    z-index: -1;
+.carrito{
+    position: absolute;
+    min-height: 100vh;
+    top: 0;
+    right: 0;
+    .card{
+        background: $background-principal;   
+        border-radius: 0 30px 30px 0;
+        z-index: 99;
+    }
 }
 
 a{

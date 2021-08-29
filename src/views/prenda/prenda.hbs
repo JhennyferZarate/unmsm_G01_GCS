@@ -1,7 +1,7 @@
 <div class="container-fluid-px-0 py-5">
     <div class="separator col-12 mb-5 p-0">
         <span class="d-none d-xl-flex"></span>
-        <h2 class="text-center">Casacas</h2>
+        <h2 class="text-center">{{panel.descripcion}}</h2>
         <span class="d-none d-xl-flex"></span>
     </div>
     <div class="row w-100 p-0 justify-content-center">
@@ -71,14 +71,16 @@
         </div>
         <div class="col-12 col-md-9 d-flex">
             <div class="row">
+                {{#each Modelos}}
                 <div class="col">
                     <div class="card card-shop mx-2 text-left">
-                        <img class="mx-auto p-0" src="images/index/Ropa1.png" alt="">
-                        <p class="card-shop-type m-0 pl-3">Chompas</p>
-                        <p class="card-shop-name m-0 pl-3">Blue</p>
-                        <p class="card-shop-price m-0 pl-3">S/. 40</p>
+                        <img class="mx-auto p-0" src="images/dbimagenes/{{descripcion}}s/{{id}}.png" alt="">
+                        <p class="card-shop-type m-0 pl-3">{{modelo}}</p>   
+                        <p class="card-shop-name m-0 pl-3">{{color}}</p>
+                        <p class="card-shop-price m-0 pl-3">S/.{{precio}}</p>
                     </div>
                 </div>
+                {{/each}}
                 <div class="col-12">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
