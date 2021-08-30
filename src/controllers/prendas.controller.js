@@ -44,7 +44,36 @@ const P_vestidos = async(req, res) => {
 }
 
 const G_vestidos_und = async(req, res) => {
-    res.render('prenda/prenda_und');
+    const { id } = req.params;
+    console.log(id);
+    let prenda = "descripcion = 'vestido' ";
+
+    const Modelo = await pool.query(
+    `
+        SELECT
+            prenda.id,
+            estilos.estilo,
+            precios.precio,
+            descripciones.descripcion,
+            modelos.modelo,
+            colores.color
+        FROM
+            prenda
+                INNER JOIN estilos
+                    ON prenda.id_estilos = estilos.id
+                INNER JOIN precios
+                    ON prenda.id_precios = precios.id
+                INNER JOIN descripciones
+                    ON prenda.id_descripciones = descripciones.id
+                INNER JOIN modelos
+                    ON prenda.id_modelos = modelos.id
+                INNER JOIN colores
+                    ON modelos.id_colores = colores.id
+        WHERE
+            descripcion = 'vestido' AND  prenda.id = '${id}'
+    `);
+
+    res.render('prenda/prenda_und',{modelo:Modelo[0]});
 }
 
 const P_vestidos_und = async(req, res) => {
