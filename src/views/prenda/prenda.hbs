@@ -1,99 +1,48 @@
 <div class="container-fluid-px-0 py-5">
-    <div class="separator col-12 mb-5 p-0">
-        <span class="d-none d-xl-flex"></span>
-        <h2 class="text-center">{{panel.descripcion}}</h2>
-        <span class="d-none d-xl-flex"></span>
-    </div>
-    <div class="row w-100 p-0 justify-content-center">
-        <div class="col-12 col-md-3">
-            <form method="POST" action="" class="filter">
-                <ul class="list-group mx-md-5">
-                    <li class="list-group-item"><h4><b>Filtros</b></h4></li>
-                    <li class="list-group-item"><h5><b>Marca</b></h5>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="celestina">
-                            <label class="custom-control-label" for="celestina">Celestina</label>
-                        </div>
-
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="torsa">
-                            <label class="custom-control-label" for="torsa">Torsa</label>
-                        </div>
-
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="franperu">
-                            <label class="custom-control-label" for="franperu">FranPeru</label>
-                        </div>
-
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="cerezas">
-                            <label class="custom-control-label" for="cerezas">Cerezas</label>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item"><b>Tamaño</b>
-                        
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="s">
-                            <label class="custom-control-label" for="s">S</label>
-                        </div>
-
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="m">
-                            <label class="custom-control-label" for="m">M</label>
-                        </div>
-
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="l">
-                            <label class="custom-control-label" for="l">L</label>
-                        </div>
-
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="xl">
-                            <label class="custom-control-label" for="xl">XL</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="xxl">
-                            <label class="custom-control-label" for="xxl">XXL</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item"><b>Precio</b>
-                        <div class="custom-control custom-checkbox">
-                            <input type="range" class="custom-control-input" min="0" max="100">
-                            <label>Precio:</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item text-center">
-                        <button class="btn btn-principal" >Aplicar</button> 
-                    </li>
-                </ul>
-            </form>
-        </div>
-        <div class="col-12 col-md-9 d-flex">
-            <div class="row">
-                {{#each Modelos}}
-                <a href = "/{{descripcion}}s/{{id}}">
-                    <div class="col">
-                        <div class="card card-shop mx-2 text-left">
-                            <img class="mx-auto p-0" src="images/dbimagenes/{{descripcion}}s/{{id}}.png" alt="">
-                            <p class="card-shop-type m-0 pl-3">{{modelo}}</p>   
-                            <p class="card-shop-name m-0 pl-3">{{color}}</p>
-                            <p class="card-shop-price m-0 pl-3">S/.{{precio}}</p>
-                        </div>
-                    </div>
-                </a>
-                {{/each}}
-                <div class="col-12">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Primero</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Ultimo</a></li>
-                        </ul>
-                    </nav>
-                </div>
+  <div class="separator col-12 mb-5 p-0">
+    <span class="d-none d-xl-flex"></span>
+    <h2 class="text-center">{{panel.descripcion}}</h2>
+    <span class="d-none d-xl-flex"></span>
+  </div>
+  <div class="row w-100 p-0 justify-content-center">
+    <div class="col-12 d-flex">
+      <div class="row">
+        {{#each Modelos}}
+          <a href="/{{descripcion}}s/{{id}}">
+            <div class="col">
+              <div class="card card-shop mx-2 text-left">
+                <img
+                  class="mx-auto p-0"
+                  src="images/dbimagenes/{{descripcion}}s/{{id}}.png"
+                  alt=""
+                />
+                <p class="card-shop-type m-0 pl-3">{{modelo}}</p>
+                <p class="card-shop-name m-0 pl-3">{{color}}</p>
+                <p class="card-shop-price m-0 pl-3">S/.{{precio}}</p>
+              </div>
             </div>
+          </a>
+        {{/each}}
+        <div class="col-12">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a
+                  class="page-link"
+                  href="#"
+                >Primero</a></li>
+              <li class="page-item active"><a
+                  class="page-link"
+                  href="#"
+                >1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a
+                  class="page-link"
+                  href="#"
+                >Ultimo</a></li>
+            </ul>
+          </nav>
         </div>
+      </div>
     </div>
+  </div>
 </div>
