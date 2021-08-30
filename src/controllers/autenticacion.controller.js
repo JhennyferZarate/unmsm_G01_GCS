@@ -35,7 +35,7 @@ const Rpget = async(req,res) =>{
 
 const Rppost = async(req,res) =>{
     const id = req.user.id;
-    const Cliente = await pool.query("SELECT * FROM Cliente WHERE id = ?",[id]);
+    const Cliente = await pool.query("SELECT * FROM cliente WHERE id = ?",[id]);
     const cliente = Cliente[0];
     const id_user = cliente.id_user;
 
