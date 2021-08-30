@@ -42,9 +42,9 @@ router.post('/recuperar-pass', Auth.Rppost);
  * Recuperar Contraseña
  */
 // GET
-router.get('/cambio-pass/:id', Auth.Cget);
+router.get('/cambio-pass', Auth.Cget);
 // POST
-router.post('/cambio-pass/:id', Auth.Cpost);
+router.post('/cambio-pass', Auth.Cpost);
 
 /**
  * Cerrar sessión

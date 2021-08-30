@@ -25,14 +25,25 @@ const Iget = async(req, res) => {
  * Rp : recuperar contraseña
  */
 const Rpget = async(req,res) =>{
-    res.render('auten/recuperar_pass');
+    const id = req.user.id;
+    const User = {
+        id: id
+    }
+
+    res.render('auten/recuperar_pass',{user:User[0]});
 }
 
 const Rppost = async(req,res) =>{
-    const {mailC} = req.body;
+    const id = req.user.id;
+    const Cliente = await pool.query("SELECT * FROM cliente WHERE id = ?",[id]);
+    const cliente = Cliente[0];
+    const id_user = cliente.id_user;
 
-    const usuario = await pool.query('SELECT * FROM user_cliente WHERE mailC = ?',[mailC]);
+    const usuario = await pool.query('SELECT * FROM user_cliente WHERE id = ?',[id_user]);
     const user = usuario[0];
+
+    console.log(user.mailC);
+
     if(usuario.length > 0){
         /**
          * Enviar contraseña a su correo
@@ -43,7 +54,38 @@ const Rppost = async(req,res) =>{
                 //to: user.mailC,
                 to: user.mailC, 
                 subject: 'Recuperación de contraseña',
-                html: `Hola, tu contraseña es: `
+                html: 
+                `
+                    <table style = "max-width: 600px; padding: 10px; margin: 0 auto; border-collapse: collapse">
+                        <tr>
+                            <td style="background-color: white; text-align: center; padding: 0">
+                                <img style="display:block; margin: 2% 0%" src="https://i.postimg.cc/G2jFSRZZ/Portada-Cambio-Contrase-a-2.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: white">
+                                <div style="color: black; margin: 4% 10% 4%; text-align: justify; font-family: sans-serif">
+                                    <h2 style="color: black; margin: 0 0 7px; font-size: 30px;">¡Hola, Petición aprobada!</h2>
+                                    <p style="margin: 2px; font-size: 15px"> 
+                                        ¡Hubo una solicitud para cambiar su contraseña!<br>
+                                        Si no realizó esta solicitud, ignore este correo electrónico.<br>
+                                        De lo contrario, haga clic en este botón para cambiar su contraseña:<br><br>
+                                    </p>
+                                    <a href="${host}/cambio-pass">
+                                        <img style="display:block" src="https://i.postimg.cc/bwsS16KP/Bot-n-cambio-contrase-a-5.png">
+                                    </a>
+                                    <br>
+                                    <img style="display:block" src="https://i.postimg.cc/HxBMCjK0/Portada-Cambio-Contrase-a-7.png">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: white; text-align: center; padding: 0">
+                                <img style="display:block; margin: 2% 0%" src="https://i.postimg.cc/4dWvPKNH/Portada-Cambio-Contrase-a-3.png">
+                            </td>
+                        </tr>
+                    </table>
+                `
                 // falta método de recuperar contraseña
             });
         } catch (error) {
@@ -70,6 +112,7 @@ const Rppost = async(req,res) =>{
  * GET + POST: cambio de contraseña
  */
 const Cget = async(req, res) => {
+    const id = req.user.id;
     res.render('auten/cambio_pass');
 }
 
