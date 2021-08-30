@@ -30,6 +30,7 @@ const Rpget = async(req,res) =>{
 
 const Rppost = async(req,res) =>{
     const {mailC} = req.body;
+    const host = req.hostname;
 
     const usuario = await pool.query('SELECT * FROM user_cliente WHERE mailC = ?',[mailC]);
     const user = usuario[0];
@@ -60,7 +61,7 @@ const Rppost = async(req,res) =>{
                                         Si no realizó esta solicitud, ignore este correo electrónico.<br>
                                         De lo contrario, haga clic en este botón para cambiar su contraseña:<br><br>
                                     </p>
-                                    <a>
+                                    <a href="${host}/cambio-pass">
                                         <img style="display:block" src="https://i.postimg.cc/bwsS16KP/Bot-n-cambio-contrase-a-5.png">
                                     </a>
                                     <br>
