@@ -39,11 +39,11 @@ router.get('/chompas/:id', Prenda.G_chompas_und);
 router.post('/chompas/:id', Prenda.P_chompas_und);
 
 //FALDAS
-router.get('/faldas', Prenda.G_pijama);
-router.post('/faldas', Prenda.P_pijama);
+router.get('/faldas', Prenda.G_faldas);
+router.post('/faldas', Prenda.P_faldas);
 
-router.get('/faldas/:id', Prenda.G_pijama_und);
-router.post('/faldas/:id', Prenda.P_pijama_und);
+router.get('/faldas/:id', Prenda.G_faldas_und);
+router.post('/faldas/:id', Prenda.P_faldas_und);
 
 //JEANS
 router.get('/jeans', Prenda.G_jeans);
