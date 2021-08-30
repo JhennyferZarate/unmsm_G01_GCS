@@ -25,14 +25,25 @@ const Iget = async(req, res) => {
  * Rp : recuperar contraseña
  */
 const Rpget = async(req,res) =>{
-    res.render('auten/recuperar_pass');
+    const id = req.user.id;
+    const User = {
+        id: id
+    }
+
+    res.render('auten/recuperar_pass',{user:User[0]});
 }
 
 const Rppost = async(req,res) =>{
-    const {mailC} = req.body;
+    const id = req.user.id;
+    const Cliente = await pool.query("SELECT * FROM Cliente WHERE id = ?",[id]);
+    const cliente = Cliente[0];
+    const id_user = cliente.id_user;
 
-    const usuario = await pool.query('SELECT * FROM user_cliente WHERE mailC = ?',[mailC]);
+    const usuario = await pool.query('SELECT * FROM user_cliente WHERE id = ?',[id_user]);
     const user = usuario[0];
+
+    console.log(user.mailC);
+
     if(usuario.length > 0){
         /**
          * Enviar contraseña a su correo
@@ -101,6 +112,7 @@ const Rppost = async(req,res) =>{
  * GET + POST: cambio de contraseña
  */
 const Cget = async(req, res) => {
+    const id = req.user.id;
     res.render('auten/cambio_pass');
 }
 
