@@ -8,7 +8,7 @@ CREATE TABLE `mydb`.`info_cliente` (
     `apeC` VARCHAR(255) NOT NULL,
     `apeC2` VARCHAR(255) NULL,
     `dniC` INT NOT NULL,
-    `telC` INT NOT NULL,
+    `telfC` INT NOT NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -38,17 +38,17 @@ CREATE TABLE `mydb`.`cliente` (
     INDEX `fk_cliente_tamaño_idx` (`id_tamaño` ASC) ,
     CONSTRAINT `fk_cliente_info`
         FOREIGN KEY (`id_info`)
-        REFERENCES `gcs_unmsm`.`info_cliente` (`id`)
+        REFERENCES `mydb`.`info_cliente` (`id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
     CONSTRAINT `fk_cliente_user`
         FOREIGN KEY (`id_user`)
-        REFERENCES `gcs_unmsm`.`user_cliente` (`id`)
+        REFERENCES `mydb`.`user_cliente` (`id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
     CONSTRAINT `fk_cliente_tamaño`
         FOREIGN KEY (`id_tamaño`)
-        REFERENCES `gcs_unmsm`.`tamaño` (`id`)
+        REFERENCES `mydb`.`tamaño` (`id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE);
 
@@ -81,7 +81,7 @@ CREATE TABLE `mydb`.`comentarios` (
     INDEX `fk_id_cliente_prenda_idx` (`id_cliente` ASC),
     CONSTRAINT `fk_id_cliente_prenda`
         FOREIGN KEY (`id_cliente`)
-        REFERENCES `gcs_unmsm`.`cliente` (`id`)
+        REFERENCES `mydb`.`cliente` (`id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
@@ -163,12 +163,12 @@ CREATE TABLE `mydb`.`carrito` (
     INDEX `fk_carrito_cliente_idx` (`id_cliente` ASC) ,
     CONSTRAINT `fk_carrito_prenda`
         FOREIGN KEY (`id_prenda`)
-        REFERENCES `gcs_unmsm`.`prenda` (`id`)
+        REFERENCES `mydb`.`prenda` (`id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
     CONSTRAINT `fk_carrito_cliente`
         FOREIGN KEY (`id_cliente`)
-        REFERENCES `gcs_unmsm`.`cliente` (`id`)
+        REFERENCES `mydb`.`cliente` (`id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
@@ -199,17 +199,17 @@ CREATE TABLE `mydb`.`pagos` (
     INDEX `fk_pago_promociòn_idx` (`id_promocion` ASC) ,
     CONSTRAINT `fk_pago_cliente`
         FOREIGN KEY (`id_cliente`)
-        REFERENCES `gcs_unmsm`.`cliente` (`id`)
+        REFERENCES `mydb`.`cliente` (`id`)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION,
     CONSTRAINT `fk_pago_metodo`
         FOREIGN KEY (`id_metodo`)
-        REFERENCES `gcs_unmsm`.`metodos` (`id`)
+        REFERENCES `mydb`.`metodos` (`id`)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION,
     CONSTRAINT `fk_pago_promociòn`
         FOREIGN KEY (`id_promocion`)
-        REFERENCES `gcs_unmsm`.`promociones` (`id`)
+        REFERENCES `mydb`.`promociones` (`id`)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION);
 
@@ -226,12 +226,12 @@ CREATE TABLE `mydb`.`orden` (
     INDEX `fk_orden_cliente_idx` (`id_cliente` ASC) ,
     CONSTRAINT `fk_orden_pago`
         FOREIGN KEY (`id_pago`)
-        REFERENCES `gcs_unmsm`.`pagos` (`id`)
+        REFERENCES `mydb`.`pagos` (`id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
     CONSTRAINT `fk_orden_cliente`
         FOREIGN KEY (`id_cliente`)
-        REFERENCES `gcs_unmsm`.`cliente` (`id`)
+        REFERENCES `mydb`.`cliente` (`id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );

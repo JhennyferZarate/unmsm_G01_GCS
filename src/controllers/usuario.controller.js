@@ -7,7 +7,7 @@ const helpers = require('../lib/helpers');
  */
 const usuarioGet = async(req, res) => {
 
-    const { id } = req.user;
+    const id = req.user.id;
     const Cliente = await pool.query("SELECT * FROM cliente WHERE id = ?",[id]);
     
     let idU = Cliente[0].id_user;
@@ -39,7 +39,7 @@ const usuarioPost = async(req, res) => {
  * GET + POST: editar perfil de usuario
  */
 const editarGet = async(req, res) => {
-    const { id } = req.params;
+    const id = req.user.id;
     const Cliente = await pool.query("SELECT * FROM cliente WHERE id = ?", [id]);
     const cliente = Cliente[0];
 
@@ -58,9 +58,13 @@ const editarGet = async(req, res) => {
             cintura: '0',
             cadera: '0'
         }
-    } else if (Tamaño[0].busto <0 || Tamaño[0].cintura<0 || Tamaño[0].cadera<0){
+    } 
+
+    /*
+    else if (Tamaño[0].busto <0 || Tamaño[0].cintura<0 || Tamaño[0].cadera<0){
         //valores negativos para medidas no posibles
     }
+    */
 
     res.render('usuario/editar_perfil', { cliente: Cliente[0], usuario:Usuario[0],tamaño:Tamaño[0], info:Info[0]});
 }
