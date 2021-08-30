@@ -8,23 +8,24 @@
         <div class="col-12 d-flex">
             <div class="row">
                 {{#each Modelos}}
-                    <a href="/{{descripcion}}s/{{id}}">
+                    
                         <div class="col">
                             <div class="col m-4">
                               <div class="card card-shop mx-2 text-left">
-                                  <img
-                                    class="mx-auto p-0"
-                                    src="images/dbimagenes/{{descripcion}}s/{{id}}.png"
-                                    alt=""
-                                    height="294px" width="246px"
-                                  />
+                                  <a href="/{{descripcion}}s/{{id}}">
+                                    <img
+                                      class="mx-auto p-0"
+                                      src="images/dbimagenes/{{descripcion}}s/{{id}}.png"
+                                      alt=""
+                                      height="294px" width="246px"
+                                    />
+                                  </a>
                                   <p class="card-shop-type m-0 pl-3">{{modelo}}</p>
                                   <p class="card-shop-name m-0 pl-3">{{color}}</p>
                                   <p class="card-shop-price m-0 pl-3">S/.{{precio}}</p>
                               </div>
                             </div>
                         </div>
-                    </a>
                 {{/each}}
               
               <div class="col-12">
